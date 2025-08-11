@@ -6,8 +6,7 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 export default function ContactPage() {
   return (
     <div className="animate-in fade-in duration-500">
-      <section className="relative bg-secondary pt-20 pb-28">
-         <div className="absolute bottom-0 left-0 w-full h-24 bg-background" style={{ clipPath: 'ellipse(50% 100% at 50% 100%)' }}></div>
+      <section className="relative bg-secondary py-20 md:py-28">
         <div className="container mx-auto max-w-7xl px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Contact Us</h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
@@ -16,7 +15,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="container mx-auto max-w-7xl px-4 -mt-20 md:-mt-16">
+      <section className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                <Card className="text-center border-0 shadow-lg">
                   <CardContent className="p-6 flex flex-col items-center justify-center h-full">
@@ -66,7 +65,7 @@ export default function ContactPage() {
          </div>
       </section>
       
-      <section className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
+      <section className="container mx-auto max-w-7xl px-4 pb-16 md:pb-24">
          <div className="grid md:grid-cols-2 gap-12">
               <div className="rounded-lg overflow-hidden shadow-lg h-full">
                 <iframe 
