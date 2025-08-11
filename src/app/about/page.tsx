@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Target, Eye } from "lucide-react";
+import { CheckCircle, Target, Eye, Building, Star, Users, Phone, Briefcase, CheckSquare } from "lucide-react";
 
 const teamMembers = [
   {
@@ -47,10 +47,37 @@ const values = [
     }
 ]
 
+const benefits = [
+    {
+        icon: <Building className="h-8 w-8 text-primary" />,
+        title: "Innovators' Hub",
+    },
+    {
+        icon: <Star className="h-8 w-8 text-primary" />,
+        title: "Your Time, Your Flow",
+    },
+    {
+        icon: <CheckSquare className="h-8 w-8 text-primary" />,
+        title: "Hands-On Lab Access",
+    },
+    {
+        icon: <Users className="h-8 w-8 text-primary" />,
+        title: "Comfort First",
+    },
+    {
+        icon: <Briefcase className="h-8 w-8 text-primary" />,
+        title: "Skill Acceleration",
+    },
+    {
+        icon: <Phone className="h-8 w-8 text-primary" />,
+        title: "Future Builders",
+    },
+]
+
 export default function AboutPage() {
   return (
     <div className="animate-in fade-in duration-500">
-      <section className="bg-card/50 py-20 md:py-28">
+      <section className="bg-secondary py-20 md:py-28">
         <div className="container mx-auto max-w-7xl px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">About Argynix</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
@@ -58,50 +85,48 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-
+      
       <section className="py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight">Our Mission</h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                To empower businesses across industries by providing intelligent, connected, and automated solutions that drive efficiency, productivity, and growth. We believe in leveraging technology to solve real-world problems and create a smarter, more connected world.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight">Our Vision</h2>
-              <p className="mt-4 text-lg text-muted-foreground">
-                To be a global leader in IoT and automation technology, recognized for our innovation, quality, and commitment to client success. We envision a future where our solutions are integral to the seamless functioning of industries and everyday life.
-              </p>
-            </div>
-          </div>
+         <div className="container mx-auto max-w-7xl px-4">
+             <Card className="bg-card shadow-lg p-8 md:p-12">
+                <div className="grid md:grid-cols-3 gap-8 items-center">
+                    <div className="md:col-span-1 text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold relative">
+                            <span className="absolute -top-4 -left-4 text-8xl font-bold text-foreground/10 -z-10">Something</span>
+                            About Us
+                        </h2>
+                    </div>
+                    <div className="md:col-span-2 text-muted-foreground space-y-4 text-lg">
+                        <p>Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
+                        <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements.</p>
+                        <p>We believe in being adaptive, solution-driven, and approachable. No matter the challenge, our team stays cool, focused, and ready to provide the right answers and exceptional service at every stage of your project.</p>
+                    </div>
+                </div>
+            </Card>
         </div>
       </section>
-      
-      <section className="bg-card/50 py-16 md:py-24">
-         <div className="container mx-auto max-w-7xl px-4">
-            <div className="space-y-4 text-center">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Core Values</h2>
-                <p className="max-w-2xl mx-auto text-muted-foreground md:text-lg">
-                    The principles that guide our work and culture.
-                </p>
-            </div>
-            <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-3">
-                {values.map((value) => (
-                    <Card key={value.title} className="text-center">
-                        <CardHeader>
-                            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                                {value.icon}
+
+       <section id="how-we-are" className="w-full py-16 md:py-24 bg-secondary">
+        <div className="container mx-auto max-w-7xl px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="hidden md:block">
+                     <Image src="https://placehold.co/600x400.png" alt="How We Are" width={600} height={400} data-ai-hint="team working" className="rounded-lg" />
+                </div>
+                 <div className="text-center md:text-left">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">How We Are</h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+                        {benefits.map((benefit) => (
+                            <div key={benefit.title} className="text-center">
+                                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary mb-3">
+                                    {benefit.icon}
+                                </div>
+                                <h3 className="text-base font-semibold">{benefit.title}</h3>
                             </div>
-                        </CardHeader>
-                        <CardContent className="space-y-2">
-                        <h3 className="text-xl font-semibold">{value.title}</h3>
-                        <p className="text-muted-foreground">{value.description}</p>
-                        </CardContent>
-                    </Card>
-                ))}
+                        ))}
+                    </div>
+                </div>
             </div>
-         </div>
+        </div>
       </section>
 
       <section className="py-16 md:py-24">
@@ -114,7 +139,7 @@ export default function AboutPage() {
           </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-4">
             {teamMembers.map((member) => (
-              <Card key={member.name} className="text-center overflow-hidden group">
+              <Card key={member.name} className="text-center overflow-hidden group border-0 shadow-lg">
                  <div className="h-64 w-full overflow-hidden">
                     <Image
                         src={member.image}

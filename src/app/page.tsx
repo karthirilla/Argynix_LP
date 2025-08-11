@@ -1,147 +1,154 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Bot, Factory, Sprout, Wifi } from "lucide-react"
+import { ArrowRight, Bot, Factory, Sprout, Wifi, Home as HomeIcon, Briefcase, Users, Phone, Building, Star, CheckSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 
 const services = [
   {
     icon: <Wifi className="h-8 w-8 text-primary" />,
-    title: "IoT Solutions",
-    description: "End-to-end IoT product development, from sensor integration to cloud platforms.",
+    title: "IOT Development",
+    href: "/services",
   },
   {
     icon: <Factory className="h-8 w-8 text-primary" />,
     title: "Industrial Automation",
-    description: "Enhancing efficiency and productivity with our advanced automation systems.",
+    href: "/services",
   },
   {
     icon: <Bot className="h-8 w-8 text-primary" />,
-    title: "Robotics Integration",
-    description: "Seamlessly integrating robotic solutions to automate and streamline your operations.",
+    title: "Robotics & AI",
+    href: "/services",
   },
   {
     icon: <Sprout className="h-8 w-8 text-primary" />,
-    title: "Agri-Tech Solutions",
-    description: "Smart farming solutions to improve yield and sustainability in agriculture.",
+    title: "Electronics R&D",
+    href: "/services",
+  },
+   {
+    icon: <HomeIcon className="h-8 w-8 text-primary" />,
+    title: "Smart Home Systems",
+    href: "/services",
+  },
+  {
+    icon: <Briefcase className="h-8 w-8 text-primary" />,
+    title: "Agriculture Tech",
+    href: "/services",
   },
 ];
 
-const projects = [
+const benefits = [
     {
-        title: "Smart Agriculture System",
-        description: "An IoT-based system for monitoring soil moisture, temperature, and automated irrigation.",
-        image: "https://placehold.co/600x400.png",
-        hint: "agriculture farm",
-        link: "/portfolio",
+        icon: <Building className="h-8 w-8 text-primary" />,
+        title: "Innovators' Hub",
     },
     {
-        title: "Home Automation Hub",
-        description: "A centralized hub to control lighting, climate, and security systems in smart homes.",
-        image: "https://placehold.co/600x400.png",
-        hint: "smart home",
-        link: "/portfolio",
+        icon: <Star className="h-8 w-8 text-primary" />,
+        title: "Your Time, Your Flow",
     },
     {
-        title: "Industrial Monitoring Dashboard",
-        description: "Real-time monitoring of industrial machinery to predict maintenance needs and prevent downtime.",
-        image: "https://placehold.co/600x400.png",
-        hint: "factory dashboard",
-        link: "/portfolio",
+        icon: <CheckSquare className="h-8 w-8 text-primary" />,
+        title: "Hands-On Lab Access",
+    },
+    {
+        icon: <Users className="h-8 w-8 text-primary" />,
+        title: "Comfort First",
+    },
+    {
+        icon: <Briefcase className="h-8 w-8 text-primary" />,
+        title: "Skill Acceleration",
+    },
+    {
+        icon: <Phone className="h-8 w-8 text-primary" />,
+        title: "Future Builders",
     },
 ]
 
+
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      <section className="relative w-full py-32 md:py-48 lg:py-64">
-        <div className="container mx-auto max-w-7xl px-4 text-center">
-            <div className="flex flex-col items-center space-y-6 animate-in fade-in duration-700">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
-                    Pioneering Tomorrow's Technology, Today
-                </h1>
-                <p className="max-w-3xl text-lg text-muted-foreground md:text-xl">
-                    We build innovative IoT products, automation solutions, and robotics integrations to power the future of every industry.
-                </p>
-                <div className="flex gap-4">
-                    <Button asChild size="lg">
-                        <Link href="/portfolio">View Our Work</Link>
-                    </Button>
-                    <Button asChild size="lg" variant="outline">
-                        <Link href="/contact">Get in Touch</Link>
-                    </Button>
+    <div className="flex flex-col animate-in fade-in duration-500">
+      <section className="relative w-full bg-secondary pt-24 pb-32">
+        <div className="container mx-auto max-w-7xl px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left">
+                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground">
+                        Building Tomorrow's Connected World
+                    </h1>
+                    <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
+                        We turn your innovative ideas into smart, connected solutions.
+                    </p>
+                </div>
+                <div className="hidden md:block">
+                  <Image src="https://placehold.co/705x550.png" alt="Hero Illustration" width={705} height={550} data-ai-hint="abstract illustration technology" />
                 </div>
             </div>
         </div>
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-background" style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 100%)" }}></div>
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-background transform -scale-x-100" style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 100%)" }}></div>
+
       </section>
 
-      <section id="services" className="w-full py-16 md:py-24 bg-secondary">
+      <section className="py-16 md:py-24 -mt-24">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Expertise</h2>
-            <p className="max-w-2xl mx-auto text-muted-foreground md:text-lg">
-              From concept to reality, we provide comprehensive electronics solutions across various domains.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <div key={service.title} className="text-center">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary mb-4">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold">{service.title}</h3>
-                  <p className="text-muted-foreground mt-2">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="portfolio" className="w-full py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl px-4">
-           <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Featured Projects</h2>
-            <p className="max-w-2xl mx-auto text-muted-foreground md:text-lg">
-              See how our innovative solutions are making an impact.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-                 <Link href={project.link} key={project.title} className="overflow-hidden rounded-lg group">
-                     <Image
-                        src={project.image}
-                        alt={project.title}
-                        width={600}
-                        height={400}
-                        data-ai-hint={project.hint}
-                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="p-4 bg-secondary rounded-b-lg">
-                        <h3 className="font-semibold text-lg">{project.title}</h3>
-                        <p className="text-sm text-muted-foreground">{project.description}</p>
+             <Card className="bg-card shadow-lg p-8 md:p-12">
+                <div className="grid md:grid-cols-3 gap-8 items-center">
+                    <div className="md:col-span-1 text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold relative">
+                            <span className="absolute -top-4 -left-4 text-8xl font-bold text-foreground/10 -z-10">About</span>
+                            About Us
+                        </h2>
                     </div>
-                </Link>
-            ))}
+                    <div className="md:col-span-2 text-muted-foreground space-y-4">
+                        <p>Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
+                        <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements.</p>
+                        <p>We believe in being adaptive, solution-driven, and approachable. No matter the challenge, our team stays cool, focused, and ready to provide the right answers and exceptional service at every stage of your project.</p>
+                    </div>
+                </div>
+            </Card>
+        </div>
+      </section>
+
+
+      <section id="services" className="w-full py-16 md:py-24">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="space-y-4 text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What We Do</h2>
           </div>
-          <div className="mt-12 text-center">
-             <Button asChild size="lg" variant="outline">
-                <Link href="/portfolio">View All Projects</Link>
-            </Button>
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+            {services.map((service) => (
+              <Link href={service.href} key={service.title} className="block">
+                <Card className="text-center p-6 h-full hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                        {service.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    <Button variant="link">Know more</Button>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="w-full py-16 md:py-24">
+      <section id="how-we-are" className="w-full py-16 md:py-24 bg-secondary">
         <div className="container mx-auto max-w-7xl px-4">
-            <div className="rounded-lg bg-primary p-12 text-center text-primary-foreground">
-                <h2 className="text-3xl font-bold">Ready to build the future?</h2>
-                <p className="mt-4 max-w-xl mx-auto text-lg">
-                    Let's discuss how Argynix can help you achieve your technological goals.
-                </p>
-                <div className="mt-8">
-                    <Button asChild size="lg" variant="secondary">
-                        <Link href="/contact">Contact Us Today</Link>
-                    </Button>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="hidden md:block">
+                     <Image src="https://placehold.co/600x400.png" alt="How We Are" width={600} height={400} data-ai-hint="team working" className="rounded-lg" />
+                </div>
+                 <div className="text-center md:text-left">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">How We Are</h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+                        {benefits.map((benefit) => (
+                            <div key={benefit.title} className="text-center">
+                                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary mb-3">
+                                    {benefit.icon}
+                                </div>
+                                <h3 className="text-base font-semibold">{benefit.title}</h3>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

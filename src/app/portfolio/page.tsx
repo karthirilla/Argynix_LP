@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { Card } from "@/components/ui/card"
 
 const projects = [
   {
@@ -69,27 +70,29 @@ export default function PortfolioPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-               <Link href="#" key={project.title} className="group block">
-                <div className="overflow-hidden rounded-lg">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={400}
-                    data-ai-hint={project.hint}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="mt-4">
-                  <h3 className="text-xl font-semibold">{project.title}</h3>
-                  <p className="mt-1 text-muted-foreground">{project.description}</p>
-                   <div className="mt-3 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
+              <Link href="#" key={project.title}>
+                 <Card className="group block overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <div className="overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={400}
+                      data-ai-hint={project.hint}
+                      className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
                   </div>
-                </div>
-              </Link>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold">{project.title}</h3>
+                    <p className="mt-1 text-muted-foreground">{project.description}</p>
+                     <div className="mt-4 flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary">{tag}</Badge>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+               </Link>
             ))}
           </div>
         </div>

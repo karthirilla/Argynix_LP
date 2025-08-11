@@ -1,54 +1,47 @@
 import Image from "next/image"
-import { Cog, ShieldCheck, AreaChart, Wifi, Factory, Bot, Rocket } from "lucide-react"
+import { Check, Wifi, Factory, Bot, Sprout, Home as HomeIcon, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"
 
 const services = [
   {
-    title: "IoT Solutions & Product Development",
-    description: "We provide end-to-end IoT solutions, from hardware design and firmware development to cloud integration and data analytics. Our team can turn your idea into a market-ready smart product.",
-    icon: <Wifi className="w-10 h-10" />,
-    features: [
-      { name: "Custom Hardware Design" },
-      { name: "Firmware & Embedded Systems" },
-      { name: "Cloud Platform Integration" },
-      { name: "Data Analytics & Visualization" },
-    ],
+    icon: <Wifi className="h-8 w-8 text-primary" />,
+    title: "IOT Development",
+    description: "End-to-end IoT solutions from hardware to cloud.",
+    href: "#",
   },
   {
+    icon: <Factory className="h-8 w-8 text-primary" />,
     title: "Industrial Automation",
-    description: "Our industrial automation solutions enhance operational efficiency, reduce costs, and improve safety. We implement PLC, SCADA, and HMI systems tailored to your specific industrial needs.",
-    icon: <Factory className="w-10 h-10" />,
-     features: [
-      { name: "PLC Programming & Control" },
-      { name: "SCADA & HMI Development" },
-      { name: "Process Optimization" },
-      { name: "Predictive Maintenance" },
-    ],
+    description: "Enhancing efficiency with advanced automation.",
+     href: "#",
   },
   {
-    title: "Robotics Integration",
-    description: "We integrate advanced robotics into your workflows to automate repetitive tasks, improve precision, and boost productivity. Our expertise covers robotic arms, AGVs, and custom robotic solutions.",
-    icon: <Bot className="w-10 h-10" />,
-    features: [
-      { name: "Robotic Arm Integration" },
-      { name: "Automated Guided Vehicles (AGVs)" },
-      { name: "Custom Robotics Solutions" },
-      { name: "Machine Vision" },
-    ],
+    icon: <Bot className="h-8 w-8 text-primary" />,
+    title: "Robotics & AI",
+    description: "Integrating robotics to streamline operations.",
+     href: "#",
+  },
+  {
+    icon: <Sprout className="h-8 w-8 text-primary" />,
+    title: "Electronics R&D",
+    description: "Custom electronics design and development.",
+    href: "#",
   },
    {
-    title: "End-to-End Product Development",
-    description: "From initial concept and prototyping to mass manufacturing and deployment, we manage the entire product lifecycle. We ensure your electronics product is reliable, scalable, and ready for the market.",
-    icon: <Rocket className="w-10 h-10" />,
-    features: [
-      { name: "Prototyping & DFM" },
-      { name: "Supply Chain Management" },
-      { name: "Certification & Compliance" },
-      { name: "Mass Manufacturing" },
-    ],
+    icon: <HomeIcon className="h-8 w-8 text-primary" />,
+    title: "Smart Home Systems",
+    description: "Intelligent solutions for modern living.",
+    href: "#",
   },
-]
+  {
+    icon: <Briefcase className="h-8 w-8 text-primary" />,
+    title: "Agriculture Tech",
+    description: "Smart farming to improve yield and sustainability.",
+    href: "#",
+  },
+];
 
 export default function ServicesPage() {
   return (
@@ -64,23 +57,18 @@ export default function ServicesPage() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="grid gap-12 md:grid-cols-2">
+           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
             {services.map((service) => (
-              <div key={service.title} className="rounded-lg border bg-card p-8 shadow-sm">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg text-primary">{service.icon}</div>
-                    <h2 className="text-2xl font-bold">{service.title}</h2>
-                  </div>
-                  <p className="text-muted-foreground text-lg">{service.description}</p>
-                  <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-muted-foreground">
-                    {service.features.map(feature => (
-                      <li key={feature.name} className="flex items-center gap-2">
-                        <CheckIcon className="w-4 h-4 text-primary" />
-                        <span>{feature.name}</span>
-                      </li>
-                    ))}
-                  </ul>
-              </div>
+              <Link href={service.href} key={service.title} className="block">
+                <Card className="text-center p-6 h-full hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                        {service.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                    <p className="text-muted-foreground mb-4">{service.description}</p>
+                    <Button variant="link">Know more</Button>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -102,24 +90,5 @@ export default function ServicesPage() {
         </div>
       </section>
     </div>
-  )
-}
-
-function CheckIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
   )
 }

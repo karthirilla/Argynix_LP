@@ -6,8 +6,8 @@ import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: "Argynix Digital Hub",
-  description: "Pioneering Tomorrow's Technology, Today.",
+  title: "Argynix - IOT and Electronics Solutions",
+  description: "Argynix is a leading IoT solutions, industrial automation, robotics integration, and electronics product development company. We deliver customizable technology solutions for industries and businesses.",
 }
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
         ></link>
       </head>
       <body className="font-body antialiased">
-        <ThemeProvider defaultTheme="dark">
+        <ThemeProvider defaultTheme="light">
           <div className="relative flex min-h-dvh flex-col bg-background">
             <Header />
             <main className="flex-1">{children}</main>
