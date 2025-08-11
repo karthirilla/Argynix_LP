@@ -91,20 +91,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto max-w-7xl px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="animate-in fade-in-left duration-700">
-                    <Image src="https://placehold.co/600x400.png" alt="About Us" width={600} height={400} data-ai-hint="team working" className="rounded-lg shadow-lg" />
-                </div>
-                <div className="animate-in fade-in-right duration-700">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6">About Argynix</h2>
-                    <div className="text-muted-foreground space-y-4 text-lg">
-                        <p>At Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
-                        <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements.</p>
-                    </div>
-                </div>
-            </div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-3xl md:text-4xl font-bold text-center">About Argynix</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center text-muted-foreground space-y-4 text-lg max-w-3xl mx-auto">
+              <p>At Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
+              <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements.</p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
