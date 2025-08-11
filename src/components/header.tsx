@@ -1,10 +1,8 @@
-
 "use client"
 
 import * as React from "react"
 import Link from "next/link"
 import { Menu, CircuitBoard, Phone, RadioTower, ChevronDown, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase } from "lucide-react"
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -12,6 +10,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose
 } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -44,8 +43,6 @@ const productsLinks = [
 ]
 
 export function Header() {
-  const [isSheetOpen, setIsSheetOpen] = useState(false)
-
   const NavLink = ({ href, children, className }: { href: string, children: React.ReactNode, className?: string }) => (
     <Link
       href={href}
@@ -125,7 +122,7 @@ export function Header() {
               <span className="font-semibold">Contact</span>
             </Link>
           </Button>
-          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+          <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
                 <Menu className="h-6 w-6" />
@@ -137,65 +134,69 @@ export function Header() {
                   <div className="flex flex-col p-6">
                     <SheetHeader className="border-b pb-4 mb-4 text-left">
                         <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
-                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
-                        <CircuitBoard className="h-8 w-8 text-primary" />
-                        <span className="font-bold text-2xl">Argynix</span>
-                        </Link>
+                        <SheetClose asChild>
+                            <Link href="/" className="flex items-center gap-2">
+                            <CircuitBoard className="h-8 w-8 text-primary" />
+                            <span className="font-bold text-2xl">Argynix</span>
+                            </Link>
+                        </SheetClose>
                     </SheetHeader>
                     <nav className="flex flex-col gap-2">
-                      <Link href="/" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Home</Link>
-                      <Link href="/about" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">About</Link>
-                      <Link href="/portfolio" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Portfolio</Link>
+                      <SheetClose asChild><Link href="/" className="py-2 text-lg font-medium transition-colors hover:text-primary">Home</Link></SheetClose>
+                      <SheetClose asChild><Link href="/about" className="py-2 text-lg font-medium transition-colors hover:text-primary">About</Link></SheetClose>
+                      <SheetClose asChild><Link href="/portfolio" className="py-2 text-lg font-medium transition-colors hover:text-primary">Portfolio</Link></SheetClose>
                       
                        <Accordion type="multiple" className="w-full">
                         <AccordionItem value="services">
                            <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">
-                             <Link href="/services" onClick={() => setIsSheetOpen(false)}>Our Services</Link>
+                             <SheetClose asChild><Link href="/services">Our Services</Link></SheetClose>
                            </AccordionTrigger>
                            <AccordionContent className="pl-4">
                                <nav className="flex flex-col gap-2">
                                    {servicesLinks.map((link) => (
-                                    <Link
-                                      key={link.title}
-                                      href={link.href}
-                                      onClick={() => setIsSheetOpen(false)}
-                                      className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
-                                    >
-                                      {link.title}
-                                    </Link>
+                                    <SheetClose asChild key={link.title}>
+                                        <Link
+                                        href={link.href}
+                                        className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
+                                        >
+                                        {link.title}
+                                        </Link>
+                                    </SheetClose>
                                   ))}
                                </nav>
                            </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="products">
                            <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">
-                             <Link href="/products" onClick={() => setIsSheetOpen(false)}>Our Products</Link>
+                             <SheetClose asChild><Link href="/products">Our Products</Link></SheetClose>
                            </AccordionTrigger>
                            <AccordionContent className="pl-4">
                                <nav className="flex flex-col gap-2">
                                 {productsLinks.map((link) => (
-                                    <Link
-                                      key={link.title}
-                                      href={link.href}
-                                      onClick={() => setIsSheetOpen(false)}
-                                      className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
-                                    >
-                                      {link.title}
-                                    </Link>
+                                    <SheetClose asChild key={link.title}>
+                                        <Link
+                                        href={link.href}
+                                        className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
+                                        >
+                                        {link.title}
+                                        </Link>
+                                    </SheetClose>
                                   ))}
                                </nav>
                            </AccordionContent>
                         </AccordionItem>
                        </Accordion>
                       
-                      <Link href="/documents" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary mt-2">Documents</Link>
-                      <Link href="/innovations" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Innovations</Link>
+                      <SheetClose asChild><Link href="/documents" className="py-2 text-lg font-medium transition-colors hover:text-primary mt-2">Documents</Link></SheetClose>
+                      <SheetClose asChild><Link href="/innovations" className="py-2 text-lg font-medium transition-colors hover:text-primary">Innovations</Link></SheetClose>
 
                       <Button asChild variant="outline" className="mt-4">
-                        <Link href="/contact" onClick={() => setIsSheetOpen(false)}>
-                          <Phone className="h-5 w-5" />
-                          <span className="font-semibold">Contact</span>
-                        </Link>
+                        <SheetClose asChild>
+                            <Link href="/contact">
+                            <Phone className="h-5 w-5" />
+                            <span className="font-semibold">Contact</span>
+                            </Link>
+                        </SheetClose>
                       </Button>
                     </nav>
                   </div>
