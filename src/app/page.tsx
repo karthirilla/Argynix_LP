@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Bot, Factory, Sprout, Wifi, Home as HomeIcon, Briefcase, Users, Phone, Building, Star, CheckSquare, Lightbulb, Clock, Layers, Rocket, ShieldCheck, Zap } from "lucide-react"
+import { Bot, Factory, Sprout, Wifi, HomeIcon, Briefcase, Layers, Rocket, ShieldCheck, Zap, Lightbulb } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 
@@ -54,7 +54,7 @@ const benefits = [
         description: "We are committed to delivering robust and reliable high-quality solutions."
     },
     {
-        icon: <Users className="h-8 w-8 text-primary" />,
+        icon: <Briefcase className="h-8 w-8 text-primary" />,
         title: "Client-Centric",
         description: "Your success is our priority. We build partnerships based on trust and results."
     },
@@ -124,12 +124,14 @@ export default function Home() {
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
             {services.map((service, index) => (
               <Link href={service.href} key={service.title} className="block animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
-                <Card className="text-center p-6 h-full hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                <Card className="text-center p-6 h-full hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                     <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         {service.icon}
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <Button variant="link">Know more</Button>
+                    <h3 className="text-xl font-semibold mb-2 flex-grow">{service.title}</h3>
+                    <div className="mt-auto">
+                      <Button>Know more</Button>
+                    </div>
                 </Card>
               </Link>
             ))}
