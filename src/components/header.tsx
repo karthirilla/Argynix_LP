@@ -2,7 +2,7 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, CircuitBoard, Phone, Wifi, Code, Package, RadioTower, Factory, Bot, Sprout, HomeIcon as Home, Briefcase } from "lucide-react"
+import { Menu, CircuitBoard, Phone, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase, RadioTower } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -19,11 +19,11 @@ import {
 import { cn } from "@/lib/utils"
 
 const servicesLinks = [
-    { href: "/services/iot-development", title: "IOT Solutions", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
+    { href: "/services/iot-development", title: "IOT Development", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
     { href: "/services/industrial-automation", title: "Industrial Automation", description: "Embedded Programming", icon: <Factory className="h-5 w-5" /> },
     { href: "/services/robotics-ai", title: "Robotics & AI", description: "PCB Design", icon: <Bot className="h-5 w-5" /> },
     { href: "/services/electronics-rd", title: "Electronics R&D", description: "Product Development", icon: <Sprout className="h-5 w-5" /> },
-    { href: "/services/smart-home", title: "Smart Home", description: "Modern Living", icon: <Home className="h-5 w-5" /> },
+    { href: "/services/smart-home", title: "Smart Home", description: "Modern Living", icon: <HomeIcon className="h-5 w-5" /> },
     { href: "/services/agri-tech", title: "Agriculture Tech", description: "Smart Farming", icon: <Briefcase className="h-5 w-5" /> },
 ]
 
