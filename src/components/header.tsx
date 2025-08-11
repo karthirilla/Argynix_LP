@@ -78,7 +78,7 @@ export function Header() {
                     <Link href="/services" className="font-semibold text-base">Our Services</Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    <ul className="grid w-[300px] gap-3 p-4">
                       {servicesLinks.map((component) => (
                         <ListItem
                           key={component.title}
@@ -97,7 +97,7 @@ export function Header() {
                      <Link href="/products" className="font-semibold text-base">Our Products</Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px] ">
+                     <ul className="grid w-[300px] gap-3 p-4">
                       {productsLinks.map((component) => (
                         <ListItem
                           key={component.title}
@@ -137,12 +137,11 @@ export function Header() {
                <ScrollArea className="h-full">
                   <div className="flex flex-col p-6">
                     <SheetHeader className="border-b pb-4 mb-4 text-left">
-                        <SheetTitle asChild>
-                            <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
-                            <CircuitBoard className="h-8 w-8 text-primary" />
-                            <span className="font-bold text-2xl">Argynix</span>
-                            </Link>
-                        </SheetTitle>
+                        <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
+                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
+                        <CircuitBoard className="h-8 w-8 text-primary" />
+                        <span className="font-bold text-2xl">Argynix</span>
+                        </Link>
                     </SheetHeader>
                     <nav className="flex flex-col gap-2">
                       <Link href="/" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Home</Link>
