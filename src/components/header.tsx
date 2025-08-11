@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
+  SheetHeader,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import {
@@ -134,13 +136,17 @@ export function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-sm p-0">
-               <ScrollArea className="h-full">
-                  <div className="flex flex-col p-6">
-                    <Link href="/" className="mb-6 flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
+            <SheetContent side="right" className="w-full max-w-sm">
+              <SheetHeader className="border-b pb-4">
+                  <SheetTitle asChild>
+                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
                       <CircuitBoard className="h-8 w-8 text-primary" />
                       <span className="font-bold text-2xl">Argynix</span>
                     </Link>
+                  </SheetTitle>
+              </SheetHeader>
+               <ScrollArea className="h-[calc(100vh-80px)]">
+                  <div className="flex flex-col p-6">
                     <nav className="flex flex-col gap-2">
                       <Link href="/" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Home</Link>
                       <Link href="/about" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">About</Link>
