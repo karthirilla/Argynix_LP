@@ -1,10 +1,15 @@
 import { ContactForm } from "@/components/contact-form";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export default function ContactPage() {
   return (
     <div className="animate-in fade-in duration-500">
-      <section className="bg-card/50 py-20 md:py-28">
+      <section className="relative bg-secondary pt-20 pb-28">
+         <div className="cs-shape cs-shape-bottom cs-shape-curve bg-background">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
+               <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
+            </svg>
+         </div>
         <div className="container mx-auto max-w-7xl px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Contact Us</h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
@@ -13,53 +18,69 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <h2 className="text-3xl font-bold">Get in Touch</h2>
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 rounded-md bg-primary/10 p-3 text-primary">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Email</h3>
-                  <p className="text-muted-foreground">Send us an email for inquiries.</p>
-                  <a href="mailto:contact@argynix.com" className="font-medium text-primary hover:underline">
-                    contact@argynix.com
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 rounded-md bg-primary/10 p-3 text-primary">
-                  <Phone className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Phone</h3>
-                  <p className="text-muted-foreground">Give us a call during business hours.</p>
-                  <a href="tel:+1234567890" className="font-medium text-primary hover:underline">
-                    +1 (234) 567-890
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 rounded-md bg-primary/10 p-3 text-primary">
-                  <MapPin className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Office</h3>
-                  <p className="text-muted-foreground">123 Tech Avenue, Innovation City, 45678</p>
-                </div>
-              </div>
+      <section className="container mx-auto max-w-7xl px-4 -mt-20">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="card h-full border-0 shadow-lg py-4 bg-card">
+                  <div className="card-body text-center p-6">
+                     <MapPin className="mb-4 text-primary mx-auto h-10 w-10" />
+                     <h3 className="text-lg font-semibold mb-2">Address, Location</h3>
+                     <p className="text-sm text-muted-foreground mb-2">1/167 Attavanith Thottam, Grey Nagar, Erode, TamilNadu-638 056.</p>
+                     <a className="text-primary text-sm font-medium hover:underline" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">See on the map</a>
+                  </div>
+               </div>
+               <div className="card h-full border-0 shadow-lg py-4 bg-card">
+                  <div className="card-body text-center p-6">
+                     <Clock className="mb-4 text-primary mx-auto h-10 w-10" />
+                     <h3 className="text-lg font-semibold mb-2">Working hours</h3>
+                     <ul className="list-none text-sm text-muted-foreground m-0 p-0">
+                        <li>Monday - Sunday</li>
+                        <li>9.30am - 6.00pm </li>
+                     </ul>
+                  </div>
+               </div>
+               <div className="card h-full border-0 shadow-lg py-4 bg-card">
+                  <div className="card-body text-center p-6">
+                     <Phone className="mb-4 text-primary mx-auto h-10 w-10" />
+                     <h3 className="text-lg font-semibold mb-2">Phone numbers</h3>
+                     <ul className="list-none text-sm text-muted-foreground m-0 p-0">
+                        <li><a className="text-primary hover:underline" href="tel:+917708580558">77085 80558</a></li>
+                        <li><a className="text-primary hover:underline" href="tel:+917708883764">77088 83764</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div className="card h-full border-0 shadow-lg py-4 bg-card">
+                  <div className="card-body text-center p-6">
+                     <Mail className="mb-4 text-primary mx-auto h-10 w-10" />
+                     <h3 className="text-lg font-semibold mb-2">Email address</h3>
+                     <ul className="list-none text-sm text-muted-foreground m-0 p-0">
+                        <li><a className="text-primary hover:underline" href="mailto:contact@argynix.com">contact@argynix.com</a></li>
+                     </ul>
+                  </div>
+               </div>
+         </div>
+      </section>
+      
+      <section className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            <div className="h-full">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.6916881708808!2d77.48626177477209!3d11.28405914962583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba91338ec44a113%3A0x3447cb1cd57f6d8d!2sAttavanith%20Thottam!5e0!3m2!1sen!2sin!4v1754694241331!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0, minHeight: '400px' }}
+                    allowFullScreen
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="rounded-lg shadow-lg"
+                ></iframe>
             </div>
             
             <div className="rounded-lg border bg-card p-8 shadow-sm">
-                <h2 className="text-3xl font-bold mb-6">Send us a Message</h2>
+                <h2 className="text-3xl font-bold mb-6">Drop us a line</h2>
                 <ContactForm />
             </div>
 
           </div>
-        </div>
       </section>
     </div>
   )

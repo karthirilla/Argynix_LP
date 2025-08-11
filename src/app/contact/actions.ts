@@ -5,6 +5,8 @@ import * as z from "zod"
 const formSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
+  phone: z.string().optional(),
+  subject: z.string().optional(),
   message: z.string().min(10),
 })
 
@@ -20,6 +22,8 @@ export async function handleContactForm(values: z.infer<typeof formSchema>) {
   console.log("New contact form submission:")
   console.log("Name:", validatedFields.data.name)
   console.log("Email:", validatedFields.data.email)
+  console.log("Phone:", validatedFields.data.phone)
+  console.log("Subject:", validatedFields.data.subject)
   console.log("Message:", validatedFields.data.message)
 
   // Simulate network delay
