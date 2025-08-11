@@ -1,3 +1,4 @@
+
 "use client"
 
 import Link from "next/link"
@@ -15,6 +16,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -30,13 +32,19 @@ const servicesLinks = [
     { href: "/services", title: "Product", description: "Product Development" },
 ]
 
+const productsLinks = [
+    { href: "#", title: "Argynix IOT", description: "Remote Control v1.0" },
+]
+
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
+  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false)
+  const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false)
 
-  const NavLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
+  const NavLink = ({ href, children, className }: { href: string, children: React.ReactNode, className?: string }) => (
     <Link
       href={href}
-      className="font-semibold text-base text-foreground/80 transition-colors hover:text-primary"
+      className={cn("font-semibold text-base text-foreground/80 transition-colors hover:text-primary", className)}
     >
       {children}
     </Link>
@@ -57,14 +65,34 @@ export function Header() {
             <NavLink href="/about">About</NavLink>
             <NavLink href="/portfolio">Portfolio</NavLink>
             
-            <DropdownMenu>
+            <DropdownMenu open={isServicesMenuOpen} onOpenChange={setIsServicesMenuOpen}>
               <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
-                  Our Services <ChevronDown className="h-4 w-4" />
+                <button onMouseEnter={() => setIsServicesMenuOpen(true)} onMouseLeave={() => setIsServicesMenuOpen(false)} className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
+                  Our Services
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent onMouseEnter={() => setIsServicesMenuOpen(true)} onMouseLeave={() => setIsServicesMenuOpen(false)} >
                 {servicesLinks.map((link) => (
+                    <DropdownMenuItem key={link.title} asChild>
+                         <Link href={link.href} className="w-full">
+                            <div className="flex flex-col">
+                                <span className="font-semibold">{link.title}</span>
+                                <span className="text-sm text-muted-foreground">{link.description}</span>
+                            </div>
+                        </Link>
+                    </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu open={isProductsMenuOpen} onOpenChange={setIsProductsMenuOpen}>
+              <DropdownMenuTrigger asChild>
+                <button onMouseEnter={() => setIsProductsMenuOpen(true)} onMouseLeave={() => setIsProductsMenuOpen(false)} className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
+                  Our Products
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent onMouseEnter={() => setIsProductsMenuOpen(true)} onMouseLeave={() => setIsProductsMenuOpen(false)}>
+                {productsLinks.map((link) => (
                     <DropdownMenuItem key={link.title} asChild>
                          <Link href={link.href} className="w-full">
                             <div className="flex flex-col">
@@ -107,6 +135,18 @@ export function Header() {
                   
                   <h3 className="font-bold text-lg mt-2">Our Services</h3>
                    {servicesLinks.map((link) => (
+                    <Link
+                      key={link.title}
+                      href={link.href}
+                      onClick={() => setIsSheetOpen(false)}
+                      className="text-lg font-medium transition-colors hover:text-primary"
+                    >
+                      {link.title}
+                    </Link>
+                  ))}
+
+                  <h3 className="font-bold text-lg mt-2">Our Products</h3>
+                   {productsLinks.map((link) => (
                     <Link
                       key={link.title}
                       href={link.href}
