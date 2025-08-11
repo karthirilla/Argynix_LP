@@ -1,0 +1,104 @@
+import Image from "next/image"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+
+const projects = [
+  {
+    title: "Smart Agriculture System",
+    category: "Agri-Tech",
+    description: "An IoT-based system for real-time monitoring of soil moisture, temperature, and nutrient levels, coupled with an automated irrigation system. Increased crop yield by 20%.",
+    image: "https://placehold.co/600x400.png",
+    hint: "agriculture technology",
+    tags: ["IoT", "Sensors", "Cloud", "React"],
+  },
+  {
+    title: "Home Automation Hub",
+    category: "Smart Home",
+    description: "A centralized hub to control lighting, climate, security systems, and entertainment devices in smart homes via a mobile app. Features voice control integration with Alexa and Google Assistant.",
+    image: "https://placehold.co/600x400.png",
+    hint: "modern living room",
+    tags: ["IoT", "Mobile App", "Voice Control"],
+  },
+  {
+    title: "Industrial Monitoring Dashboard",
+    category: "Industrial Automation",
+    description: "Real-time monitoring of industrial machinery to predict maintenance needs, prevent downtime, and optimize performance. Implemented on the factory floor of a major manufacturing client.",
+    image: "https://placehold.co/600x400.png",
+    hint: "industrial dashboard",
+    tags: ["SCADA", "IoT", "Data Analytics", "Cloud"],
+  },
+  {
+    title: "Custom IoT Sensor Node",
+    category: "Electronics",
+    description: "Designed and developed a low-power, multi-sensor node for environmental monitoring. The device has a battery life of over 5 years and communicates via LoRaWAN.",
+    image: "https://placehold.co/600x400.png",
+    hint: "circuit sensor",
+    tags: ["PCB Design", "Firmware", "LoRaWAN"],
+  },
+  {
+    title: "Warehouse AGV System",
+    category: "Robotics",
+    description: "An fleet of autonomous guided vehicles (AGVs) for automating material transport in a large warehouse, improving efficiency and reducing human error.",
+    image: "https://placehold.co/600x400.png",
+    hint: "warehouse robot",
+    tags: ["Robotics", "AGV", "Automation"],
+  },
+  {
+    title: "Wearable Health Monitor",
+    category: "Electronics",
+    description: "A wearable device that tracks vital signs like heart rate, SpO2, and activity levels, syncing data to a mobile app for personal health insights.",
+    image: "https://placehold.co/600x400.png",
+    hint: "wearable technology",
+    tags: ["Wearable", "IoT", "Bluetooth", "Mobile App"],
+  },
+]
+
+export default function PortfolioPage() {
+  return (
+    <div className="animate-in fade-in duration-500">
+      <section className="bg-card/50 py-20 md:py-28">
+        <div className="container mx-auto max-w-7xl px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Our Portfolio</h1>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+            A glimpse into the innovative solutions we've delivered.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project) => (
+              <Card key={project.title} className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div className="relative">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={600}
+                    height={400}
+                    data-ai-hint={project.hint}
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="absolute top-4 right-4">
+                     <Badge variant="default" className="bg-accent text-accent-foreground">{project.category}</Badge>
+                  </div>
+                </div>
+                <CardHeader>
+                  <CardTitle>{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col">
+                  <CardDescription className="flex-grow">{project.description}</CardDescription>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <Badge key={tag} variant="secondary">{tag}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
