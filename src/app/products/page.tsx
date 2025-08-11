@@ -30,16 +30,23 @@ export default function ProductsPage() {
         <div className="container mx-auto max-w-7xl px-4">
            <div className="grid gap-8 sm:grid-cols-1">
             {products.map((product) => (
-              <Link href={product.href} key={product.title} className="block">
-                <Card className="text-center p-6 h-full hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
-                        {product.icon}
-                    </div>
+              <Card key={product.title} className="text-center p-6 h-full hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                      {product.icon}
+                  </div>
+                  <div className="flex-grow">
                     <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
                     <p className="text-muted-foreground mb-4">{product.description}</p>
-                    <Button variant="link">View Product</Button>
-                </Card>
-              </Link>
+                  </div>
+                  <div className="mt-auto flex justify-center gap-4">
+                    <Button asChild variant="link">
+                        <Link href={product.href}>View Product</Link>
+                    </Button>
+                    <Button asChild>
+                        <Link href="https://iot.argynix.in/" target="_blank">Live Demo</Link>
+                    </Button>
+                  </div>
+              </Card>
             ))}
           </div>
         </div>
