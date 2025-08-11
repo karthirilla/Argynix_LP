@@ -33,8 +33,6 @@ const productsLinks = [
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
-  const [isServicesMenuOpen, setIsServicesMenuOpen] = useState(false)
-  const [isProductsMenuOpen, setIsProductsMenuOpen] = useState(false)
 
   const NavLink = ({ href, children, className }: { href: string, children: React.ReactNode, className?: string }) => (
     <Link
@@ -60,13 +58,13 @@ export function Header() {
             <NavLink href="/about">About</NavLink>
             <NavLink href="/portfolio">Portfolio</NavLink>
             
-            <DropdownMenu open={isServicesMenuOpen} onOpenChange={setIsServicesMenuOpen}>
+            <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button onMouseEnter={() => setIsServicesMenuOpen(true)} onMouseLeave={() => setIsServicesMenuOpen(false)} className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
+                <button className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
                   Our Services
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent onMouseEnter={() => setIsServicesMenuOpen(true)} onMouseLeave={() => setIsServicesMenuOpen(false)} >
+              <DropdownMenuContent>
                 {servicesLinks.map((link) => (
                     <DropdownMenuItem key={link.title} asChild>
                          <Link href={link.href} className="w-full flex items-center gap-2">
@@ -81,13 +79,13 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <DropdownMenu open={isProductsMenuOpen} onOpenChange={setIsProductsMenuOpen}>
+            <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button onMouseEnter={() => setIsProductsMenuOpen(true)} onMouseLeave={() => setIsProductsMenuOpen(false)} className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
+                <button className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
                   Our Products
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent onMouseEnter={() => setIsProductsMenuOpen(true)} onMouseLeave={() => setIsProductsMenuOpen(false)}>
+              <DropdownMenuContent>
                 {productsLinks.map((link) => (
                     <DropdownMenuItem key={link.title} asChild>
                          <Link href={link.href} className="w-full flex items-center gap-2">
