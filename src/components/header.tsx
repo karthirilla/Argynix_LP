@@ -28,19 +28,20 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
 const servicesLinks = [
-    { href: "/services/iot-development", title: "IOT Development", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
-    { href: "/services/industrial-automation", title: "Industrial Automation", description: "Embedded Programming", icon: <Factory className="h-5 w-5" /> },
-    { href: "/services/robotics-ai", title: "Robotics & AI", description: "PCB Design", icon: <Bot className="h-5 w-5" /> },
-    { href: "/services/electronics-rd", title: "Electronics R&D", description: "Product Development", icon: <Sprout className="h-5 w-5" /> },
-    { href: "/services/smart-home", title: "Smart Home", description: "Modern Living", icon: <HomeIcon className="h-5 w-5" /> },
-    { href: "/services/agri-tech", title: "Agriculture Tech", description: "Smart Farming", icon: <Briefcase className="h-5 w-5" /> },
+    { href: "/services/iot-development", title: "IOT Development", description: "End-to-end IoT solutions from hardware to cloud.", icon: <Wifi className="h-5 w-5" /> },
+    { href: "/services/industrial-automation", title: "Industrial Automation", description: "Enhancing efficiency with advanced automation.", icon: <Factory className="h-5 w-5" /> },
+    { href: "/services/robotics-ai", title: "Robotics & AI", description: "Integrating robotics to streamline operations.", icon: <Bot className="h-5 w-5" /> },
+    { href: "/services/electronics-rd", title: "Electronics R&D", description: "Custom electronics design and development.", icon: <Sprout className="h-5 w-5" /> },
+    { href: "/services/smart-home", title: "Smart Home", description: "Intelligent solutions for modern living.", icon: <HomeIcon className="h-5 w-5" /> },
+    { href: "/services/agri-tech", title: "Agriculture Tech", description: "Smart farming to improve yield and sustainability.", icon: <Briefcase className="h-5 w-5" /> },
 ]
 
 const productsLinks = [
-    { href: "/products/argynix-iot", title: "Argynix IOT", description: "Remote Control v1.0", icon: <RadioTower className="h-5 w-5" /> },
+    { href: "/products/argynix-iot", title: "Argynix IoT - Remote Control v1.0", description: "A powerful, flexible, and easy-to-use platform.", icon: <RadioTower className="h-5 w-5" /> },
 ]
 
 export function Header() {
@@ -83,6 +84,7 @@ export function Header() {
                           key={component.title}
                           title={component.title}
                           href={component.href}
+                          icon={component.icon}
                         >
                           {component.description}
                         </ListItem>
@@ -95,12 +97,13 @@ export function Header() {
                      <Link href="/products" className="font-semibold text-base">Our Products</Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] ">
+                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px] ">
                       {productsLinks.map((component) => (
                         <ListItem
                           key={component.title}
                           title={component.title}
                           href={component.href}
+                          icon={component.icon}
                         >
                           {component.description}
                         </ListItem>
@@ -209,8 +212,8 @@ export function Header() {
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & { icon: React.ReactNode }
+>(({ className, title, children, icon, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -222,10 +225,17 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
+          <div className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              {icon}
+            </div>
+            <div>
+              <div className="text-sm font-medium leading-none">{title}</div>
+              <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                {children}
+              </p>
+            </div>
+          </div>
         </a>
       </NavigationMenuLink>
     </li>
