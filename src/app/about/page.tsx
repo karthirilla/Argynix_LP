@@ -111,27 +111,29 @@ export default function AboutPage() {
         </div>
       </section>
 
-       <section id="how-we-are" className="w-full py-16 md:py-24 bg-secondary">
+       <section id="values" className="w-full py-16 md:py-24 bg-secondary">
         <div className="container mx-auto max-w-7xl px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="hidden md:block">
-                     <Image src="https://placehold.co/600x400.png" alt="How We Are" width={600} height={400} data-ai-hint="team working" className="rounded-lg" />
-                </div>
-                 <div className="text-center md:text-left">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">How We Are</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-                        {benefits.map((benefit) => (
-                            <div key={benefit.title} className="text-center">
-                                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary mb-3">
-                                    {benefit.icon}
-                                </div>
-                                <h3 className="text-base font-semibold">{benefit.title}</h3>
-                                <p className="text-sm text-muted-foreground mt-1">{benefit.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Core Values</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+              The principles that guide our work and define our culture.
+            </p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
+            {values.map((value) => (
+              <Card key={value.title} className="text-center p-6 h-full shadow-lg border-0">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary mb-4">
+                      {value.icon}
+                  </div>
+                  <CardHeader>
+                    <CardTitle>{value.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{value.description}</p>
+                  </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
