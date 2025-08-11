@@ -1,6 +1,6 @@
 
 import { ContactForm } from "@/components/contact-form";
-import { Card, CardHeader, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 export default function ContactPage() {
@@ -67,26 +67,27 @@ export default function ContactPage() {
       </section>
       
       <section className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
-          <Card className="shadow-lg overflow-hidden">
-             <div className="grid md:grid-cols-2">
-                 <div>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.6916881708808!2d77.48626177477209!3d11.28405914962583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba91338ec44a113%3A0x3447cb1cd57f6d8d!2sAttavanith%20Thottam!5e0!3m2!1sen!2sin!4v1754694241331!5m2!1sen!2sin" 
-                        width="100%" 
-                        height="100%" 
-                        style={{ border: 0, minHeight: '480px' }}
-                        allowFullScreen
-                        loading="lazy" 
-                        referrerPolicy="no-referrer-when-downgrade"
-                        className="w-full h-full"
-                    ></iframe>
-                </div>
-                <div className="p-8 md:p-12">
-                   <h2 className="text-3xl font-bold mb-6">Drop us a line</h2>
-                   <ContactForm />
-                </div>
-            </div>
-          </Card>
+         <div className="grid md:grid-cols-2 gap-12">
+              <div className="rounded-lg overflow-hidden shadow-lg h-full">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.6916881708808!2d77.48626177477209!3d11.28405914962583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba91338ec44a113%3A0x3447cb1cd57f6d8d!2sAttavanith%20Thottam!5e0!3m2!1sen!2sin!4v1754694241331!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0, minHeight: '480px' }}
+                    allowFullScreen
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <Card className="shadow-lg">
+                  <CardHeader>
+                    <CardTitle className="text-3xl font-bold">Drop us a line</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ContactForm />
+                  </CardContent>
+              </Card>
+          </div>
       </section>
     </div>
   )
