@@ -8,7 +8,7 @@ import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"
 const products = [
   {
     icon: <RadioTower className="h-8 w-8 text-primary" />,
-    title: "Argynix IoT - Remote Control v1.0",
+    title: "Argynix IoT - V 4.1",
     description: "A powerful, flexible, and easy-to-use platform for remote monitoring and control of your critical assets.",
     href: "/products/argynix-iot",
   },

@@ -31,7 +31,7 @@ export default function ArgynixIotPage() {
     <div className="animate-in fade-in duration-500">
       <section className="bg-secondary py-20 md:py-28">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Argynix IoT - Remote Control v1.0</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Argynix IoT - V 4.1</h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
             A powerful, flexible, and easy-to-use platform for remote monitoring and control of your critical assets.
           </p>

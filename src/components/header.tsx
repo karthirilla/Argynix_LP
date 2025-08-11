@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Menu, CircuitBoard, Phone, RadioTower, ChevronDown, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase } from "lucide-react"
+import { Menu, CircuitBoard, Phone, RadioTower, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -39,7 +39,7 @@ const servicesLinks = [
 ]
 
 const productsLinks = [
-    { href: "/products/argynix-iot", title: "Argynix IoT", description: "Remote control platform.", icon: <RadioTower className="h-6 w-6" /> },
+    { href: "/products/argynix-iot", title: "Argynix IoT - V 4.1", description: "A powerful IoT platform.", icon: <RadioTower className="h-6 w-6" /> },
 ]
 
 export function Header() {
