@@ -2,7 +2,7 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, CircuitBoard, Phone, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase, RadioTower } from "lucide-react"
+import { Menu, CircuitBoard, Phone, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase, RadioTower, ChevronDown } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -26,6 +26,15 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
 
 const servicesLinks = [
     { href: "/services/iot-development", title: "IOT Development", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
@@ -42,8 +51,6 @@ const productsLinks = [
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
-  const [servicesMenuOpen, setServicesMenuOpen] = useState(false)
-  const [productsMenuOpen, setProductsMenuOpen] = useState(false)
 
   const NavLink = ({ href, children, className }: { href: string, children: React.ReactNode, className?: string }) => (
     <Link
@@ -69,53 +76,46 @@ export function Header() {
             <NavLink href="/about">About</NavLink>
             <NavLink href="/portfolio">Portfolio</NavLink>
             
-            <DropdownMenu open={servicesMenuOpen} onOpenChange={setServicesMenuOpen}>
-              <DropdownMenuTrigger asChild>
-                <button 
-                    onMouseEnter={() => setServicesMenuOpen(true)}
-                    onMouseLeave={() => setServicesMenuOpen(false)}
-                    className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
-                  Our Services
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent onMouseEnter={() => setServicesMenuOpen(true)} onMouseLeave={() => setServicesMenuOpen(false)}>
-                {servicesLinks.map((link) => (
-                    <DropdownMenuItem key={link.title} asChild>
-                         <Link href={link.href} className="w-full flex items-center gap-2">
-                            {link.icon}
-                            <div className="flex flex-col">
-                                <span className="font-semibold">{link.title}</span>
-                                <span className="text-sm text-muted-foreground">{link.description}</span>
-                            </div>
-                        </Link>
-                    </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <DropdownMenu open={productsMenuOpen} onOpenChange={setProductsMenuOpen}>
-              <DropdownMenuTrigger asChild>
-                 <button 
-                    onMouseEnter={() => setProductsMenuOpen(true)}
-                    onMouseLeave={() => setProductsMenuOpen(false)}
-                    className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
-                  Our Products
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent onMouseEnter={() => setProductsMenuOpen(true)} onMouseLeave={() => setProductsMenuOpen(false)}>
-                {productsLinks.map((link) => (
-                    <DropdownMenuItem key={link.title} asChild>
-                         <Link href={link.href} className="w-full flex items-center gap-2">
-                            {link.icon}
-                            <div className="flex flex-col">
-                                <span className="font-semibold">{link.title}</span>
-                                <span className="text-sm text-muted-foreground">{link.description}</span>
-                            </div>
-                        </Link>
-                    </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>
+                    <Link href="/services" className="font-semibold text-base">Our Services</Link>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                      {servicesLinks.map((component) => (
+                        <ListItem
+                          key={component.title}
+                          title={component.title}
+                          href={component.href}
+                        >
+                          {component.description}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>
+                     <Link href="/products" className="font-semibold text-base">Our Products</Link>
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] ">
+                      {productsLinks.map((component) => (
+                        <ListItem
+                          key={component.title}
+                          title={component.title}
+                          href={component.href}
+                        >
+                          {component.description}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
 
             <NavLink href="/documents">Documents</NavLink>
             <NavLink href="/innovations">Innovations</NavLink>
@@ -136,17 +136,17 @@ export function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-sm">
-              <SheetHeader className="border-b pb-4">
-                  <SheetTitle asChild>
-                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
-                      <CircuitBoard className="h-8 w-8 text-primary" />
-                      <span className="font-bold text-2xl">Argynix</span>
-                    </Link>
-                  </SheetTitle>
-              </SheetHeader>
-               <ScrollArea className="h-[calc(100vh-80px)]">
+            <SheetContent side="right" className="w-full max-w-sm p-0">
+               <ScrollArea className="h-full">
                   <div className="flex flex-col p-6">
+                    <SheetHeader className="border-b pb-4 mb-4 text-left">
+                        <SheetTitle asChild>
+                            <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
+                            <CircuitBoard className="h-8 w-8 text-primary" />
+                            <span className="font-bold text-2xl">Argynix</span>
+                            </Link>
+                        </SheetTitle>
+                    </SheetHeader>
                     <nav className="flex flex-col gap-2">
                       <Link href="/" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Home</Link>
                       <Link href="/about" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">About</Link>
@@ -154,7 +154,9 @@ export function Header() {
                       
                        <Accordion type="multiple" className="w-full">
                         <AccordionItem value="services">
-                           <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">Our Services</AccordionTrigger>
+                           <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">
+                             <Link href="/services" onClick={() => setIsSheetOpen(false)}>Our Services</Link>
+                           </AccordionTrigger>
                            <AccordionContent className="pl-4">
                                <nav className="flex flex-col gap-2">
                                    {servicesLinks.map((link) => (
@@ -171,7 +173,9 @@ export function Header() {
                            </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="products">
-                           <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">Our Products</AccordionTrigger>
+                           <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">
+                             <Link href="/products" onClick={() => setIsSheetOpen(false)}>Our Products</Link>
+                           </AccordionTrigger>
                            <AccordionContent className="pl-4">
                                <nav className="flex flex-col gap-2">
                                 {productsLinks.map((link) => (
@@ -208,3 +212,29 @@ export function Header() {
     </header>
   )
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
