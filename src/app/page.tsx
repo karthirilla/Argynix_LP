@@ -70,11 +70,29 @@ const benefits = [
     },
 ]
 
+const topImages = [
+    {
+        src: "https://placehold.co/600x400.png",
+        alt: "IoT Project 1",
+        hint: "iot project"
+    },
+    {
+        src: "https://placehold.co/600x400.png",
+        alt: "IoT Project 2",
+        hint: "smart factory"
+    },
+    {
+        src: "https://placehold.co/600x400.png",
+        alt: "IoT Project 3",
+        hint: "pcb design"
+    }
+]
+
 
 export default function Home() {
   return (
     <div className="flex flex-col animate-in fade-in duration-500">
-      <section className="relative w-full bg-secondary pt-24 pb-32">
+      <section className="relative w-full bg-secondary pt-24 pb-16">
         <div className="container mx-auto max-w-7xl px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left animate-in fade-in slide-in-from-left duration-700">
@@ -90,12 +108,22 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-background" style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 100%)" }}></div>
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-background transform -scale-x-100" style={{ clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 100%)" }}></div>
-
       </section>
 
-      <section className="py-16 md:py-24 -mt-24">
+      <section className="py-16">
+        <div className="container mx-auto max-w-7xl px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {topImages.map((image, index) => (
+                    <div key={index} className="overflow-hidden rounded-lg shadow-lg animate-in fade-in-up" style={{ animationDelay: `${index * 200}ms`}}>
+                        <Image src={image.src} alt={image.alt} width={600} height={400} data-ai-hint={image.hint} className="w-full h-full object-cover" />
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+
+      <section className="py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
              <Card className="bg-card shadow-lg p-8 md:p-12 animate-in fade-in-up duration-700">
                 <div className="grid md:grid-cols-3 gap-8 items-center">
@@ -145,8 +173,8 @@ export default function Home() {
                 <div className="hidden md:block animate-in fade-in-left duration-700">
                      <Image src="https://placehold.co/600x400.png" alt="How We Are" width={600} height={400} data-ai-hint="iot dashboard" className="rounded-lg" />
                 </div>
-                 <div className="animate-in fade-in-right duration-700">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center">How We Are</h2>
+                 <div className="animate-in fade-in-right duration-700 text-center">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">How We Are</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
                         {benefits.map((benefit, index) => (
                             <div key={benefit.title} className="text-center animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
