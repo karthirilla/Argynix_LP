@@ -17,6 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 const servicesLinks = [
     { href: "/services/iot-development", title: "IOT Development", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
@@ -125,45 +126,54 @@ export function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <div className="flex flex-col gap-6 p-6">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
-                  <CircuitBoard className="h-8 w-8 text-primary" />
-                  <span className="font-bold text-2xl">Argynix</span>
-                </Link>
-                <nav className="grid gap-4">
-                  <Link href="/" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Home</Link>
-                  <Link href="/about" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">About</Link>
-                  <Link href="/portfolio" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Portfolio</Link>
-                  
-                  <h3 className="font-bold text-lg mt-2">Our Services</h3>
-                   {servicesLinks.map((link) => (
-                    <Link
-                      key={link.title}
-                      href={link.href}
-                      onClick={() => setIsSheetOpen(false)}
-                      className="text-lg font-medium transition-colors hover:text-primary"
-                    >
-                      {link.title}
+            <SheetContent side="right" className="p-0">
+               <ScrollArea className="h-full">
+                  <div className="flex flex-col gap-6 p-6">
+                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
+                      <CircuitBoard className="h-8 w-8 text-primary" />
+                      <span className="font-bold text-2xl">Argynix</span>
                     </Link>
-                  ))}
+                    <nav className="grid gap-4">
+                      <Link href="/" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Home</Link>
+                      <Link href="/about" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">About</Link>
+                      <Link href="/portfolio" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Portfolio</Link>
+                      
+                      <h3 className="font-bold text-lg mt-2">Our Services</h3>
+                       {servicesLinks.map((link) => (
+                        <Link
+                          key={link.title}
+                          href={link.href}
+                          onClick={() => setIsSheetOpen(false)}
+                          className="text-lg font-medium transition-colors hover:text-primary"
+                        >
+                          {link.title}
+                        </Link>
+                      ))}
 
-                  <h3 className="font-bold text-lg mt-2">Our Products</h3>
-                   {productsLinks.map((link) => (
-                    <Link
-                      key={link.title}
-                      href={link.href}
-                      onClick={() => setIsSheetOpen(false)}
-                      className="text-lg font-medium transition-colors hover:text-primary"
-                    >
-                      {link.title}
-                    </Link>
-                  ))}
-                  
-                  <Link href="/documents" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary mt-2">Documents</Link>
-                  <Link href="/innovations" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Innovations</Link>
-                </nav>
-              </div>
+                      <h3 className="font-bold text-lg mt-2">Our Products</h3>
+                       {productsLinks.map((link) => (
+                        <Link
+                          key={link.title}
+                          href={link.href}
+                          onClick={() => setIsSheetOpen(false)}
+                          className="text-lg font-medium transition-colors hover:text-primary"
+                        >
+                          {link.title}
+                        </Link>
+                      ))}
+                      
+                      <Link href="/documents" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary mt-2">Documents</Link>
+                      <Link href="/innovations" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Innovations</Link>
+
+                      <Button asChild variant="outline" className="mt-4">
+                        <Link href="/contact" onClick={() => setIsSheetOpen(false)}>
+                          <Phone className="h-5 w-5" />
+                          <span className="font-semibold">Contact</span>
+                        </Link>
+                      </Button>
+                    </nav>
+                  </div>
+              </ScrollArea>
             </SheetContent>
           </Sheet>
         </div>
