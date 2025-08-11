@@ -5,11 +5,7 @@ export default function ContactPage() {
   return (
     <div className="animate-in fade-in duration-500">
       <section className="relative bg-secondary pt-20 pb-28">
-         <div className="cs-shape cs-shape-bottom cs-shape-curve bg-background">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 185.4">
-               <path fill="currentColor" d="M3000,0v185.4H0V0c496.4,115.6,996.4,173.4,1500,173.4S2503.6,115.6,3000,0z"></path>
-            </svg>
-         </div>
+         <div className="absolute bottom-0 left-0 w-full h-24 bg-background" style={{ clipPath: 'ellipse(50% 100% at 50% 100%)' }}></div>
         <div className="container mx-auto max-w-7xl px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Contact Us</h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
@@ -22,7 +18,9 @@ export default function ContactPage() {
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               <div className="card h-full border-0 shadow-lg py-4 bg-card">
                   <div className="card-body text-center p-6">
-                     <MapPin className="mb-4 text-primary mx-auto h-10 w-10" />
+                     <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                        <MapPin className="h-8 w-8" />
+                     </div>
                      <h3 className="text-lg font-semibold mb-2">Address, Location</h3>
                      <p className="text-sm text-muted-foreground mb-2">1/167 Attavanith Thottam, Grey Nagar, Erode, TamilNadu-638 056.</p>
                      <a className="text-primary text-sm font-medium hover:underline" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">See on the map</a>
@@ -30,7 +28,9 @@ export default function ContactPage() {
                </div>
                <div className="card h-full border-0 shadow-lg py-4 bg-card">
                   <div className="card-body text-center p-6">
-                     <Clock className="mb-4 text-primary mx-auto h-10 w-10" />
+                     <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                        <Clock className="h-8 w-8" />
+                     </div>
                      <h3 className="text-lg font-semibold mb-2">Working hours</h3>
                      <ul className="list-none text-sm text-muted-foreground m-0 p-0">
                         <li>Monday - Sunday</li>
@@ -40,7 +40,9 @@ export default function ContactPage() {
                </div>
                <div className="card h-full border-0 shadow-lg py-4 bg-card">
                   <div className="card-body text-center p-6">
-                     <Phone className="mb-4 text-primary mx-auto h-10 w-10" />
+                     <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                        <Phone className="h-8 w-8" />
+                     </div>
                      <h3 className="text-lg font-semibold mb-2">Phone numbers</h3>
                      <ul className="list-none text-sm text-muted-foreground m-0 p-0">
                         <li><a className="text-primary hover:underline" href="tel:+917708580558">77085 80558</a></li>
@@ -50,7 +52,9 @@ export default function ContactPage() {
                </div>
                <div className="card h-full border-0 shadow-lg py-4 bg-card">
                   <div className="card-body text-center p-6">
-                     <Mail className="mb-4 text-primary mx-auto h-10 w-10" />
+                     <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
+                        <Mail className="h-8 w-8" />
+                     </div>
                      <h3 className="text-lg font-semibold mb-2">Email address</h3>
                      <ul className="list-none text-sm text-muted-foreground m-0 p-0">
                         <li><a className="text-primary hover:underline" href="mailto:contact@argynix.com">contact@argynix.com</a></li>
