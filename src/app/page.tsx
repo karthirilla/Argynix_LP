@@ -98,8 +98,9 @@ export default function Home() {
               <CardTitle className="text-3xl md:text-4xl font-bold text-center">About Argynix</CardTitle>
             </CardHeader>
             <CardContent className="text-center text-muted-foreground space-y-4 text-lg max-w-3xl mx-auto">
-              <p>At Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
+              <p>Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
               <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements.</p>
+              <p>We believe in being adaptive, solution-driven, and approachable. No matter the challenge, our team stays cool, focused, and ready to provide the right answers and exceptional service at every stage of your project.</p>
             </CardContent>
           </Card>
         </div>
