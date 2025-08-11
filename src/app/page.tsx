@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Bot, Factory, Sprout, Wifi, Home as HomeIcon, Briefcase, Users, Phone, Building, Star, CheckSquare } from "lucide-react"
+import { ArrowRight, Bot, Factory, Sprout, Wifi, Home as HomeIcon, Briefcase, Users, Phone, Building, Star, CheckSquare, Lightbulb, Clock, Layers, Rocket, ShieldCheck, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 
@@ -39,28 +39,34 @@ const services = [
 
 const benefits = [
     {
-        icon: <Building className="h-8 w-8 text-primary" />,
-        title: "Innovators' Hub",
+        icon: <Lightbulb className="h-8 w-8 text-primary" />,
+        title: "Pioneering Spirit",
+        description: "We thrive on innovation and constantly explore new frontiers in technology."
     },
     {
-        icon: <Star className="h-8 w-8 text-primary" />,
-        title: "Your Time, Your Flow",
+        icon: <Zap className="h-8 w-8 text-primary" />,
+        title: "Agile & Adaptive",
+        description: "We respond quickly to change and tailor solutions to fit your exact needs."
     },
     {
-        icon: <CheckSquare className="h-8 w-8 text-primary" />,
-        title: "Hands-On Lab Access",
+        icon: <ShieldCheck className="h-8 w-8 text-primary" />,
+        title: "Quality First",
+        description: "We are committed to delivering robust and reliable high-quality solutions."
     },
     {
         icon: <Users className="h-8 w-8 text-primary" />,
-        title: "Comfort First",
+        title: "Client-Centric",
+        description: "Your success is our priority. We build partnerships based on trust and results."
     },
     {
-        icon: <Briefcase className="h-8 w-8 text-primary" />,
-        title: "Skill Acceleration",
+        icon: <Rocket className="h-8 w-8 text-primary" />,
+        title: "Future-Focused",
+        description: "We build solutions that are scalable, sustainable, and ready for tomorrow."
     },
     {
-        icon: <Phone className="h-8 w-8 text-primary" />,
-        title: "Future Builders",
+        icon: <Layers className="h-8 w-8 text-primary" />,
+        title: "End-to-End Solutions",
+        description: "From concept to deployment, we manage every step of the product lifecycle."
     },
 ]
 
@@ -137,8 +143,8 @@ export default function Home() {
                 <div className="hidden md:block animate-in fade-in-left duration-700">
                      <Image src="https://placehold.co/600x400.png" alt="How We Are" width={600} height={400} data-ai-hint="iot dashboard" className="rounded-lg" />
                 </div>
-                 <div className="text-center md:text-left animate-in fade-in-right duration-700">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">How We Are</h2>
+                 <div className="animate-in fade-in-right duration-700">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center">How We Are</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
                         {benefits.map((benefit, index) => (
                             <div key={benefit.title} className="text-center animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
@@ -146,6 +152,7 @@ export default function Home() {
                                     {benefit.icon}
                                 </div>
                                 <h3 className="text-base font-semibold">{benefit.title}</h3>
+                                <p className="text-sm text-muted-foreground mt-1">{benefit.description}</p>
                             </div>
                         ))}
                     </div>
