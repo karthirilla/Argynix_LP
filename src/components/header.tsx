@@ -2,7 +2,7 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, CircuitBoard, Phone, ChevronDown } from "lucide-react"
+import { Menu, CircuitBoard, Phone, Wifi, Code, Package, RadioTower } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -26,14 +26,14 @@ const navLinks = [
 ]
 
 const servicesLinks = [
-    { href: "/services", title: "IOT Solutions", description: "IOT Connect" },
-    { href: "/services", title: "Software", description: "Embedded Programming" },
-    { href: "/services", title: "Hardware", description: "PCB Design" },
-    { href: "/services", title: "Product", description: "Product Development" },
+    { href: "/services", title: "IOT Solutions", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
+    { href: "/services", title: "Software", description: "Embedded Programming", icon: <Code className="h-5 w-5" /> },
+    { href: "/services", title: "Hardware", description: "PCB Design", icon: <CircuitBoard className="h-5 w-5" /> },
+    { href: "/services", title: "Product", description: "Product Development", icon: <Package className="h-5 w-5" /> },
 ]
 
 const productsLinks = [
-    { href: "#", title: "Argynix IOT", description: "Remote Control v1.0" },
+    { href: "#", title: "Argynix IOT", description: "Remote Control v1.0", icon: <RadioTower className="h-5 w-5" /> },
 ]
 
 export function Header() {
@@ -74,7 +74,8 @@ export function Header() {
               <DropdownMenuContent onMouseEnter={() => setIsServicesMenuOpen(true)} onMouseLeave={() => setIsServicesMenuOpen(false)} >
                 {servicesLinks.map((link) => (
                     <DropdownMenuItem key={link.title} asChild>
-                         <Link href={link.href} className="w-full">
+                         <Link href={link.href} className="w-full flex items-center gap-2">
+                            {link.icon}
                             <div className="flex flex-col">
                                 <span className="font-semibold">{link.title}</span>
                                 <span className="text-sm text-muted-foreground">{link.description}</span>
@@ -94,7 +95,8 @@ export function Header() {
               <DropdownMenuContent onMouseEnter={() => setIsProductsMenuOpen(true)} onMouseLeave={() => setIsProductsMenuOpen(false)}>
                 {productsLinks.map((link) => (
                     <DropdownMenuItem key={link.title} asChild>
-                         <Link href={link.href} className="w-full">
+                         <Link href={link.href} className="w-full flex items-center gap-2">
+                            {link.icon}
                             <div className="flex flex-col">
                                 <span className="font-semibold">{link.title}</span>
                                 <span className="text-sm text-muted-foreground">{link.description}</span>
