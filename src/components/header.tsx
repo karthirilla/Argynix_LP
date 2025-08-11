@@ -3,8 +3,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
-import { Menu, CircuitBoard, Phone, RadioTower, ChevronDown } from "lucide-react"
+import { Menu, CircuitBoard, Phone, RadioTower, ChevronDown, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -32,22 +31,20 @@ import {
 } from "@/components/ui/navigation-menu"
 
 const servicesLinks = [
-    { href: "/services/iot-development", title: "IOT Development", description: "End-to-end IoT solutions.", image: "https://placehold.co/40x40.png" },
-    { href: "/services/industrial-automation", title: "Industrial Automation", description: "Advanced automation.", image: "https://placehold.co/40x40.png" },
-    { href: "/services/robotics-ai", title: "Robotics & AI", description: "Streamline operations.", image: "https://placehold.co/40x40.png" },
-    { href: "/services/electronics-rd", title: "Electronics R&D", description: "Custom electronics design.", image: "https://placehold.co/40x40.png" },
-    { href: "/services/smart-home", title: "Smart Home", description: "Solutions for modern living.", image: "https://placehold.co/40x40.png" },
-    { href: "/services/agri-tech", title: "Agriculture Tech", description: "Improve yield and sustainability.", image: "https://placehold.co/40x40.png" },
+    { href: "/services/iot-development", title: "IOT Development", description: "End-to-end IoT solutions.", icon: <Wifi className="h-6 w-6" /> },
+    { href: "/services/industrial-automation", title: "Industrial Automation", description: "Advanced automation.", icon: <Factory className="h-6 w-6" /> },
+    { href: "/services/robotics-ai", title: "Robotics & AI", description: "Streamline operations.", icon: <Bot className="h-6 w-6" /> },
+    { href: "/services/electronics-rd", title: "Electronics R&D", description: "Custom electronics design.", icon: <Sprout className="h-6 w-6" /> },
+    { href: "/services/smart-home", title: "Smart Home", description: "Solutions for modern living.", icon: <HomeIcon className="h-6 w-6" /> },
+    { href: "/services/agri-tech", title: "Agriculture Tech", description: "Improve yield and sustainability.", icon: <Briefcase className="h-6 w-6" /> },
 ]
 
 const productsLinks = [
-    { href: "/products/argynix-iot", title: "Argynix IoT", description: "Remote control platform.", image: "https://placehold.co/40x40.png" },
+    { href: "/products/argynix-iot", title: "Argynix IoT", description: "Remote control platform.", icon: <RadioTower className="h-6 w-6" /> },
 ]
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
-  const [servicesMenuOpen, setServicesMenuOpen] = useState(false)
-  const [productsMenuOpen, setProductsMenuOpen] = useState(false)
 
   const NavLink = ({ href, children, className }: { href: string, children: React.ReactNode, className?: string }) => (
     <Link
@@ -76,23 +73,17 @@ export function Header() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    onMouseEnter={() => setServicesMenuOpen(true)}
-                    onMouseLeave={() => setServicesMenuOpen(false)}
-                  >
+                  <NavigationMenuTrigger>
                     <Link href="/services" className="font-semibold text-base flex items-center gap-1">Our Services</Link>
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent 
-                    onMouseEnter={() => setServicesMenuOpen(true)} 
-                    onMouseLeave={() => setServicesMenuOpen(false)}
-                    >
+                  <NavigationMenuContent>
                     <ul className="grid w-[300px] gap-3 p-4">
                       {servicesLinks.map((component) => (
                         <ListItem
                           key={component.title}
                           title={component.title}
                           href={component.href}
-                          image={component.image}
+                          icon={component.icon}
                         >
                           {component.description}
                         </ListItem>
@@ -101,23 +92,17 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                     onMouseEnter={() => setProductsMenuOpen(true)}
-                     onMouseLeave={() => setProductsMenuOpen(false)}
-                  >
+                  <NavigationMenuTrigger>
                      <Link href="/products" className="font-semibold text-base flex items-center gap-1">Our Products</Link>
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent
-                     onMouseEnter={() => setProductsMenuOpen(true)}
-                     onMouseLeave={() => setProductsMenuOpen(false)}
-                  >
+                  <NavigationMenuContent>
                      <ul className="grid w-[300px] gap-3 p-4">
                       {productsLinks.map((component) => (
                         <ListItem
                           key={component.title}
                           title={component.title}
                           href={component.href}
-                          image={component.image}
+                          icon={component.icon}
                         >
                           {component.description}
                         </ListItem>
@@ -225,8 +210,8 @@ export function Header() {
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { image: string }
->(({ className, title, children, image, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & { icon: React.ReactNode }
+>(({ className, title, children, icon, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -238,14 +223,10 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="flex items-center gap-4">
-             <Image 
-                src={image} 
-                alt={title || "list item image"}
-                width={40}
-                height={40}
-                className="rounded-md"
-             />
+          <div className="flex items-center gap-3">
+             <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                {icon}
+             </div>
             <div>
               <div className="text-sm font-medium leading-none">{title}</div>
               <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
