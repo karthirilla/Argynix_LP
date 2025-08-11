@@ -18,48 +18,56 @@ export default function ContactPage() {
       <section className="container mx-auto max-w-7xl px-4 py-16 md:py-24">
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                <Card className="text-center border-0 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-center justify-center h-full">
+                  <CardContent className="p-6 flex flex-col items-center h-full">
                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         <MapPin className="h-8 w-8" />
                      </div>
-                     <h3 className="text-lg font-semibold mb-2">Address, Location</h3>
-                     <p className="text-sm text-muted-foreground mb-2">1/167 Attavanith Thottam, Grey Nagar, Erode, TamilNadu-638 056.</p>
-                     <a className="text-primary text-sm font-medium hover:underline mt-auto" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">See on the map</a>
+                     <div className="flex flex-col flex-grow">
+                         <h3 className="text-lg font-semibold mb-2">Address, Location</h3>
+                         <p className="text-sm text-muted-foreground mb-2 flex-grow">1/167 Attavanith Thottam, Grey Nagar, Erode, TamilNadu-638 056.</p>
+                         <a className="text-primary text-sm font-medium hover:underline mt-auto" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">See on the map</a>
+                     </div>
                   </CardContent>
                </Card>
                <Card className="text-center border-0 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-center justify-center h-full">
+                  <CardContent className="p-6 flex flex-col items-center h-full">
                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         <Clock className="h-8 w-8" />
                      </div>
-                     <h3 className="text-lg font-semibold mb-2">Working hours</h3>
-                     <ul className="list-none text-sm text-muted-foreground m-0 p-0">
-                        <li>Monday - Sunday</li>
-                        <li>9.30am - 6.00pm </li>
-                     </ul>
+                      <div className="flex flex-col flex-grow">
+                         <h3 className="text-lg font-semibold mb-2">Working hours</h3>
+                         <ul className="list-none text-sm text-muted-foreground m-0 p-0">
+                            <li>Monday - Sunday</li>
+                            <li>9.30am - 6.00pm </li>
+                         </ul>
+                      </div>
                   </CardContent>
                </Card>
                <Card className="text-center border-0 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-center justify-center h-full">
+                  <CardContent className="p-6 flex flex-col items-center h-full">
                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         <Phone className="h-8 w-8" />
                      </div>
-                     <h3 className="text-lg font-semibold mb-2">Phone numbers</h3>
-                     <ul className="list-none text-sm text-muted-foreground m-0 p-0">
-                        <li><a className="text-primary hover:underline" href="tel:+917708580558">77085 80558</a></li>
-                        <li><a className="text-primary hover:underline" href="tel:+917708883764">77088 83764</a></li>
-                     </ul>
+                     <div className="flex flex-col flex-grow">
+                         <h3 className="text-lg font-semibold mb-2">Phone numbers</h3>
+                         <ul className="list-none text-sm text-muted-foreground m-0 p-0">
+                            <li><a className="text-primary hover:underline" href="tel:+917708580558">77085 80558</a></li>
+                            <li><a className="text-primary hover:underline" href="tel:+917708883764">77088 83764</a></li>
+                         </ul>
+                     </div>
                   </CardContent>
                </Card>
                <Card className="text-center border-0 shadow-lg">
-                  <CardContent className="p-6 flex flex-col items-center justify-center h-full">
+                  <CardContent className="p-6 flex flex-col items-center h-full">
                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         <Mail className="h-8 w-8" />
                      </div>
-                     <h3 className="text-lg font-semibold mb-2">Email address</h3>
-                     <ul className="list-none text-sm text-muted-foreground m-0 p-0">
-                        <li><a className="text-primary hover:underline" href="mailto:contact@argynix.com">contact@argynix.com</a></li>
-                     </ul>
+                      <div className="flex flex-col flex-grow">
+                         <h3 className="text-lg font-semibold mb-2">Email address</h3>
+                         <ul className="list-none text-sm text-muted-foreground m-0 p-0">
+                            <li><a className="text-primary hover:underline" href="mailto:contact@argynix.com">contact@argynix.com</a></li>
+                         </ul>
+                      </div>
                   </CardContent>
                </Card>
          </div>
