@@ -6,11 +6,14 @@ export function Footer() {
     <footer className="bg-foreground text-background">
       <div className="container mx-auto max-w-7xl px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          <div className="md:col-span-2 lg:col-span-1">
+          <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <CircuitBoard className="h-8 w-8 text-primary-foreground" />
               <span className="text-2xl font-bold">Argynix</span>
             </Link>
+            <p className="text-primary-foreground/70 max-w-xs">
+              Building Tomorrow's Connected World. We turn your innovative ideas into smart, connected solutions.
+            </p>
             <div className="flex items-center gap-4 mt-6">
               <Link href="#" aria-label="Facebook" className="text-primary-foreground/70 hover:text-primary-foreground">
                 <Facebook className="h-5 w-5" />
@@ -26,13 +29,13 @@ export function Footer() {
               </Link>
             </div>
           </div>
-          <div className="lg:col-start-3">
+          <div>
             <h4 className="font-semibold mb-4 text-primary-foreground">Company</h4>
             <ul className="space-y-2">
               <li><Link href="/" className="text-primary-foreground/70 hover:text-primary-foreground">Home</Link></li>
               <li><Link href="/about" className="text-primary-foreground/70 hover:text-primary-foreground">About</Link></li>
               <li><Link href="/portfolio" className="text-primary-foreground/70 hover:text-primary-foreground">Portfolio</Link></li>
-              <li><Link href="/services" className="text-primary-foreground/70 hover:text-primary-foreground">Products</Link></li>
+              <li><Link href="/innovations" className="text-primary-foreground/70 hover:text-primary-foreground">Innovations</Link></li>
             </ul>
           </div>
           <div>
@@ -47,7 +50,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-primary-foreground">Quick Links</h4>
             <ul className="space-y-2">
-               <li><Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground">Documents</Link></li>
+               <li><Link href="/documents" className="text-primary-foreground/70 hover:text-primary-foreground">Documents</Link></li>
                <li><Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground">Careers</Link></li>
                <li><Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground">Policies</Link></li>
                <li><Link href="/contact" className="text-primary-foreground/70 hover:text-primary-foreground">Contact</Link></li>

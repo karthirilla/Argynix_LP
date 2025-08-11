@@ -15,12 +15,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { cn } from "@/lib/utils"
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/innovations", label: "Innovations" },
+  { href: "/documents", label: "Documents" },
 ]
 
 const servicesLinks = [
@@ -44,13 +45,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-20 max-w-7xl items-center justify-between">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 mr-4">
-            <CircuitBoard className="h-8 w-8 text-primary" />
-            <span className="font-bold text-2xl">Argynix</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+      <div className="container flex h-20 max-w-7xl items-center">
+        <div className="flex items-center gap-6 md:gap-10">
+            <Link href="/" className="flex items-center gap-2">
+                <CircuitBoard className="h-8 w-8 text-primary" />
+                <span className="font-bold text-2xl">Argynix</span>
+            </Link>
+        </div>
+        <nav className="hidden md:flex flex-1 items-center justify-center gap-6 text-sm font-medium">
             {navLinks.map((link) => (
               <NavLink key={link.href} href={link.href}>{link.label}</NavLink>
             ))}
@@ -73,10 +75,8 @@ export function Header() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-          </nav>
-        </div>
-
-        <div className="flex items-center gap-4">
+        </nav>
+        <div className="flex items-center gap-4 ml-auto">
           <Button asChild variant="ghost" className="hidden md:flex items-center gap-2">
             <Link href="/contact">
               <Phone className="h-5 w-5" />
