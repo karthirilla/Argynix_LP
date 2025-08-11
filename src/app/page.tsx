@@ -93,21 +93,18 @@ export default function Home() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
-             <Card className="bg-card shadow-lg p-8 md:p-12 animate-in fade-in-up duration-700">
-                <div className="grid md:grid-cols-3 gap-8 items-center">
-                    <div className="md:col-span-1 text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold relative">
-                            <span className="absolute -top-4 -left-4 text-8xl font-bold text-foreground/10 -z-10">About</span>
-                            About Us
-                        </h2>
-                    </div>
-                    <div className="md:col-span-2 text-muted-foreground space-y-4">
-                        <p>Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="animate-in fade-in-left duration-700">
+                    <Image src="https://placehold.co/600x400.png" alt="About Us" width={600} height={400} data-ai-hint="team working" className="rounded-lg shadow-lg" />
+                </div>
+                <div className="animate-in fade-in-right duration-700">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">About Argynix</h2>
+                    <div className="text-muted-foreground space-y-4 text-lg">
+                        <p>At Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
                         <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements.</p>
-                        <p>We believe in being adaptive, solution-driven, and approachable. No matter the challenge, our team stays cool, focused, and ready to provide the right answers and exceptional service at every stage of your project.</p>
                     </div>
                 </div>
-            </Card>
+            </div>
         </div>
       </section>
 
