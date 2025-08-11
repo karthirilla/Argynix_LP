@@ -18,6 +18,12 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const servicesLinks = [
     { href: "/services/iot-development", title: "IOT Development", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
@@ -65,11 +71,12 @@ export function Header() {
               <DropdownMenuTrigger asChild>
                 <button 
                     onMouseEnter={() => setServicesMenuOpen(true)}
+                    onMouseLeave={() => setServicesMenuOpen(false)}
                     className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
                   Our Services
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent onMouseLeave={() => setServicesMenuOpen(false)}>
+              <DropdownMenuContent onMouseEnter={() => setServicesMenuOpen(true)} onMouseLeave={() => setServicesMenuOpen(false)}>
                 {servicesLinks.map((link) => (
                     <DropdownMenuItem key={link.title} asChild>
                          <Link href={link.href} className="w-full flex items-center gap-2">
@@ -88,11 +95,12 @@ export function Header() {
               <DropdownMenuTrigger asChild>
                  <button 
                     onMouseEnter={() => setProductsMenuOpen(true)}
+                    onMouseLeave={() => setProductsMenuOpen(false)}
                     className="flex items-center gap-1 font-semibold text-base text-foreground/80 transition-colors hover:text-primary">
                   Our Products
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent onMouseLeave={() => setProductsMenuOpen(false)}>
+              <DropdownMenuContent onMouseEnter={() => setProductsMenuOpen(true)} onMouseLeave={() => setProductsMenuOpen(false)}>
                 {productsLinks.map((link) => (
                     <DropdownMenuItem key={link.title} asChild>
                          <Link href={link.href} className="w-full flex items-center gap-2">
@@ -126,44 +134,57 @@ export function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="p-0">
+            <SheetContent side="right" className="w-full max-w-sm p-0">
                <ScrollArea className="h-full">
-                  <div className="flex flex-col gap-6 p-6">
-                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
+                  <div className="flex flex-col p-6">
+                    <Link href="/" className="mb-6 flex items-center gap-2" onClick={() => setIsSheetOpen(false)}>
                       <CircuitBoard className="h-8 w-8 text-primary" />
                       <span className="font-bold text-2xl">Argynix</span>
                     </Link>
-                    <nav className="grid gap-4">
-                      <Link href="/" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Home</Link>
-                      <Link href="/about" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">About</Link>
-                      <Link href="/portfolio" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Portfolio</Link>
+                    <nav className="flex flex-col gap-2">
+                      <Link href="/" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Home</Link>
+                      <Link href="/about" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">About</Link>
+                      <Link href="/portfolio" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Portfolio</Link>
                       
-                      <h3 className="font-bold text-lg mt-2">Our Services</h3>
-                       {servicesLinks.map((link) => (
-                        <Link
-                          key={link.title}
-                          href={link.href}
-                          onClick={() => setIsSheetOpen(false)}
-                          className="text-lg font-medium transition-colors hover:text-primary"
-                        >
-                          {link.title}
-                        </Link>
-                      ))}
-
-                      <h3 className="font-bold text-lg mt-2">Our Products</h3>
-                       {productsLinks.map((link) => (
-                        <Link
-                          key={link.title}
-                          href={link.href}
-                          onClick={() => setIsSheetOpen(false)}
-                          className="text-lg font-medium transition-colors hover:text-primary"
-                        >
-                          {link.title}
-                        </Link>
-                      ))}
+                       <Accordion type="multiple" className="w-full">
+                        <AccordionItem value="services">
+                           <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">Our Services</AccordionTrigger>
+                           <AccordionContent className="pl-4">
+                               <nav className="flex flex-col gap-2">
+                                   {servicesLinks.map((link) => (
+                                    <Link
+                                      key={link.title}
+                                      href={link.href}
+                                      onClick={() => setIsSheetOpen(false)}
+                                      className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
+                                    >
+                                      {link.title}
+                                    </Link>
+                                  ))}
+                               </nav>
+                           </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="products">
+                           <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">Our Products</AccordionTrigger>
+                           <AccordionContent className="pl-4">
+                               <nav className="flex flex-col gap-2">
+                                {productsLinks.map((link) => (
+                                    <Link
+                                      key={link.title}
+                                      href={link.href}
+                                      onClick={() => setIsSheetOpen(false)}
+                                      className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
+                                    >
+                                      {link.title}
+                                    </Link>
+                                  ))}
+                               </nav>
+                           </AccordionContent>
+                        </AccordionItem>
+                       </Accordion>
                       
-                      <Link href="/documents" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary mt-2">Documents</Link>
-                      <Link href="/innovations" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Innovations</Link>
+                      <Link href="/documents" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary mt-2">Documents</Link>
+                      <Link href="/innovations" onClick={() => setIsSheetOpen(false)} className="py-2 text-lg font-medium transition-colors hover:text-primary">Innovations</Link>
 
                       <Button asChild variant="outline" className="mt-4">
                         <Link href="/contact" onClick={() => setIsSheetOpen(false)}>
