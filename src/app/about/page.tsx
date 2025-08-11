@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Target, Eye, Building, Star, Users, Phone, Briefcase, CheckSquare } from "lucide-react";
@@ -97,9 +98,7 @@ export default function AboutPage() {
                         </h2>
                     </div>
                     <div className="md:col-span-2 text-muted-foreground space-y-4 text-lg">
-                        <p>Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
-                        <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements.</p>
-                        <p>We believe in being adaptive, solution-driven, and approachable. No matter the challenge, our team stays cool, focused, and ready to provide the right answers and exceptional service at every stage of your project.</p>
+                        <p>Argynix is a pioneer in delivering IoT solutions, industrial automation, robotics integration, and electronics product development. We specialize in creating customizable, high-performance systems that help industries automate processes, improve efficiency, and stay connected through the latest technology. Our expertise spans smart device design, embedded systems, electronics prototyping, PCB development, and full-scale automation solutions. We integrate advanced robotics, intelligent sensors, and control systems to bring seamless automation into manufacturing, logistics, and other industrial sectors. With a strong focus on innovation, reliability, and scalability, we work closely with our clients to develop solutions that meet their exact requirements — whether it’s building a product from the ground up or upgrading existing systems. At Argynix, we believe in delivering precision-engineered products, on-time deployment, and unmatched technical support, making us the trusted partner for businesses seeking future-ready electronic and automation solutions.</p>
                     </div>
                 </div>
             </Card>
