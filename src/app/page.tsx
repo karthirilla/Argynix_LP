@@ -1,17 +1,17 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Bot, Cog, Cpu, Leaf } from "lucide-react"
+import { ArrowRight, Bot, Factory, Sprout, Wifi } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 
 const services = [
   {
-    icon: <Cpu className="h-8 w-8 text-primary" />,
+    icon: <Wifi className="h-8 w-8 text-primary" />,
     title: "IoT Solutions",
     description: "End-to-end IoT product development, from sensor integration to cloud platforms.",
   },
   {
-    icon: <Cog className="h-8 w-8 text-primary" />,
+    icon: <Factory className="h-8 w-8 text-primary" />,
     title: "Industrial Automation",
     description: "Enhancing efficiency and productivity with our advanced automation systems.",
   },
@@ -21,7 +21,7 @@ const services = [
     description: "Seamlessly integrating robotic solutions to automate and streamline your operations.",
   },
   {
-    icon: <Leaf className="h-8 w-8 text-primary" />,
+    icon: <Sprout className="h-8 w-8 text-primary" />,
     title: "Agri-Tech Solutions",
     description: "Smart farming solutions to improve yield and sustainability in agriculture.",
   },
@@ -64,7 +64,7 @@ export default function Home() {
                     We build innovative IoT products, automation solutions, and robotics integrations to power the future of every industry.
                 </p>
                 <div className="flex gap-4">
-                    <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                    <Button asChild size="lg">
                         <Link href="/contact">Get Started</Link>
                     </Button>
                     <Button asChild size="lg" variant="outline">
@@ -87,7 +87,7 @@ export default function Home() {
             {services.map((service) => (
               <Card key={service.title} className="text-center hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
                     {service.icon}
                   </div>
                 </CardHeader>
@@ -144,7 +144,7 @@ export default function Home() {
 
       <section className="w-full py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
-            <div className="rounded-lg bg-accent p-8 text-center text-accent-foreground md:p-12">
+            <div className="rounded-lg bg-primary p-8 text-center text-primary-foreground md:p-12">
                 <h2 className="text-3xl font-bold">Ready to build the future?</h2>
                 <p className="mt-4 max-w-xl mx-auto text-lg">
                     Let's discuss how Argynix can help you achieve your technological goals.

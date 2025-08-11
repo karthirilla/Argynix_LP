@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Cpu, Cog, Bot, Rocket, ShieldCheck, AreaChart } from "lucide-react"
+import { Cpu, Cog, Bot, Rocket, ShieldCheck, AreaChart, Wifi, Factory } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -8,7 +8,7 @@ const services = [
   {
     title: "IoT Solutions & Product Development",
     description: "We provide end-to-end IoT solutions, from hardware design and firmware development to cloud integration and data analytics. Our team can turn your idea into a market-ready smart product.",
-    icon: <Cpu className="w-10 h-10" />,
+    icon: <Wifi className="w-10 h-10" />,
     image: "https://placehold.co/600x400.png",
     hint: "iot devices",
     features: [
@@ -20,7 +20,7 @@ const services = [
   {
     title: "Industrial Automation",
     description: "Our industrial automation solutions enhance operational efficiency, reduce costs, and improve safety. We implement PLC, SCADA, and HMI systems tailored to your specific industrial needs.",
-    icon: <Cog className="w-10 h-10" />,
+    icon: <Factory className="w-10 h-10" />,
     image: "https://placehold.co/600x400.png",
     hint: "industrial machinery",
     features: [
@@ -74,7 +74,7 @@ export default function ServicesPage() {
               <div key={service.title} className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${index % 2 !== 0 ? "md:grid-flow-col-dense" : ""}`}>
                 <div className={`${index % 2 !== 0 ? "md:col-start-2" : ""}`}>
                   <div className="flex items-center gap-4">
-                    <div className="p-3 bg-primary/10 rounded-full">{service.icon}</div>
+                    <div className="p-3 bg-primary/10 rounded-full text-primary">{service.icon}</div>
                     <h2 className="text-2xl md:text-3xl font-bold">{service.title}</h2>
                   </div>
                   <p className="mt-4 text-muted-foreground text-lg">{service.description}</p>
@@ -105,7 +105,7 @@ export default function ServicesPage() {
       
       <section className="w-full py-16 md:py-24 bg-card/50">
         <div className="container mx-auto max-w-7xl px-4">
-            <div className="rounded-lg bg-accent p-8 text-center text-accent-foreground md:p-12">
+            <div className="rounded-lg bg-primary p-8 text-center text-primary-foreground md:p-12">
                 <h2 className="text-3xl font-bold">Have a project in mind?</h2>
                 <p className="mt-4 max-w-xl mx-auto text-lg">
                     Our team is ready to collaborate with you.
