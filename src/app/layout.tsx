@@ -26,7 +26,7 @@ export default function RootLayout({
         ></link>
       </head>
       <body className="font-body antialiased">
-        <ThemeProvider>
+        <ThemeProvider defaultTheme="dark">
           <div className="relative flex min-h-dvh flex-col bg-background">
             <Header />
             <main className="flex-1">{children}</main>

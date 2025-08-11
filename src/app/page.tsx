@@ -54,28 +54,28 @@ const projects = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <section className="relative w-full py-24 md:py-32 lg:py-40 bg-card/50">
+      <section className="relative w-full py-32 md:py-48 lg:py-64">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-            <div className="flex flex-col items-center space-y-4 animate-in fade-in duration-700">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground">
+            <div className="flex flex-col items-center space-y-6 animate-in fade-in duration-700">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
                     Pioneering Tomorrow's Technology, Today
                 </h1>
-                <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
+                <p className="max-w-3xl text-lg text-muted-foreground md:text-xl">
                     We build innovative IoT products, automation solutions, and robotics integrations to power the future of every industry.
                 </p>
                 <div className="flex gap-4">
                     <Button asChild size="lg">
-                        <Link href="/contact">Get Started</Link>
+                        <Link href="/portfolio">View Our Work</Link>
                     </Button>
                     <Button asChild size="lg" variant="outline">
-                        <Link href="/services">Our Services</Link>
+                        <Link href="/contact">Get in Touch</Link>
                     </Button>
                 </div>
             </div>
         </div>
       </section>
 
-      <section id="services" className="w-full py-16 md:py-24 bg-background">
+      <section id="services" className="w-full py-16 md:py-24 bg-secondary">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Expertise</h2>
@@ -85,23 +85,19 @@ export default function Home() {
           </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
-              <Card key={service.title} className="text-center hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <div key={service.title} className="text-center">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary mb-4">
                     {service.icon}
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-2">
                   <h3 className="text-xl font-semibold">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
+                  <p className="text-muted-foreground mt-2">{service.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="portfolio" className="w-full py-16 md:py-24 bg-card/50">
+      <section id="portfolio" className="w-full py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
            <div className="space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Featured Projects</h2>
@@ -111,27 +107,20 @@ export default function Home() {
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-                 <Card key={project.title} className="overflow-hidden group">
+                 <Link href={project.link} key={project.title} className="overflow-hidden rounded-lg group">
                      <Image
                         src={project.image}
                         alt={project.title}
                         width={600}
                         height={400}
                         data-ai-hint={project.hint}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <CardHeader>
-                        <CardTitle>{project.title}</CardTitle>
-                        <CardDescription>{project.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                       <Button variant="link" asChild className="p-0">
-                            <Link href={project.link}>
-                                View Project <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                        </Button>
-                    </CardContent>
-                </Card>
+                    <div className="p-4 bg-secondary rounded-b-lg">
+                        <h3 className="font-semibold text-lg">{project.title}</h3>
+                        <p className="text-sm text-muted-foreground">{project.description}</p>
+                    </div>
+                </Link>
             ))}
           </div>
           <div className="mt-12 text-center">
@@ -144,7 +133,7 @@ export default function Home() {
 
       <section className="w-full py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
-            <div className="rounded-lg bg-primary p-8 text-center text-primary-foreground md:p-12">
+            <div className="rounded-lg bg-primary p-12 text-center text-primary-foreground">
                 <h2 className="text-3xl font-bold">Ready to build the future?</h2>
                 <p className="mt-4 max-w-xl mx-auto text-lg">
                     Let's discuss how Argynix can help you achieve your technological goals.

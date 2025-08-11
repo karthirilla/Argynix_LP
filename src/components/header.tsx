@@ -10,14 +10,11 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { ThemeToggle } from "@/components/theme-toggle"
 
 const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/innovations", label: "Innovations" },
-  { href: "/about", label: "About Us" },
+  { href: "/portfolio", label: "Work" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -32,12 +29,12 @@ export function Header() {
           <span className="font-bold text-lg">Argynix</span>
         </Link>
         
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-foreground/80 text-foreground/60"
+              className="transition-colors hover:text-primary text-foreground/80"
             >
               {link.label}
             </Link>
@@ -45,7 +42,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <ThemeToggle />
+          <Button asChild className="hidden md:flex">
+            <Link href="/contact">Get in Touch</Link>
+          </Button>
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
@@ -65,7 +64,7 @@ export function Header() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsSheetOpen(false)}
-                      className="text-lg font-medium transition-colors hover:text-foreground/80 text-foreground/60"
+                      className="text-lg font-medium transition-colors hover:text-primary text-foreground/80"
                     >
                       {link.label}
                     </Link>

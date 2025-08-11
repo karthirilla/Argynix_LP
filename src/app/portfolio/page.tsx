@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 
 const projects = [
   {
@@ -56,9 +56,9 @@ const projects = [
 export default function PortfolioPage() {
   return (
     <div className="animate-in fade-in duration-500">
-      <section className="bg-card/50 py-20 md:py-28">
+      <section className="bg-secondary py-20 md:py-28">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Our Portfolio</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Our Work</h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
             A glimpse into the innovative solutions we've delivered.
           </p>
@@ -69,32 +69,27 @@ export default function PortfolioPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <Card key={project.title} className="flex flex-col overflow-hidden group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div className="relative">
+               <Link href="#" key={project.title} className="group block">
+                <div className="overflow-hidden rounded-lg">
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={600}
                     height={400}
                     data-ai-hint={project.hint}
-                    className="w-full h-56 object-cover"
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 right-4">
-                     <Badge variant="default" className="bg-accent text-accent-foreground">{project.category}</Badge>
-                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col">
-                  <CardDescription className="flex-grow">{project.description}</CardDescription>
-                  <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4">
+                  <h3 className="text-xl font-semibold">{project.title}</h3>
+                  <p className="mt-1 text-muted-foreground">{project.description}</p>
+                   <div className="mt-3 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <Badge key={tag} variant="secondary">{tag}</Badge>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
