@@ -1,3 +1,4 @@
+
 import { ContactForm } from "@/components/contact-form";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
@@ -17,7 +18,7 @@ export default function ContactPage() {
 
       <section className="container mx-auto max-w-7xl px-4 -mt-20">
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-               <Card className="text-center border-0 shadow-lg py-4">
+               <Card className="text-center border-0 shadow-lg">
                   <CardContent className="p-6 flex flex-col items-center justify-center">
                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         <MapPin className="h-8 w-8" />
@@ -27,7 +28,7 @@ export default function ContactPage() {
                      <a className="text-primary text-sm font-medium hover:underline" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">See on the map</a>
                   </CardContent>
                </Card>
-               <Card className="text-center border-0 shadow-lg py-4">
+               <Card className="text-center border-0 shadow-lg">
                   <CardContent className="p-6 flex flex-col items-center justify-center">
                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         <Clock className="h-8 w-8" />
@@ -39,7 +40,7 @@ export default function ContactPage() {
                      </ul>
                   </CardContent>
                </Card>
-               <Card className="text-center border-0 shadow-lg py-4">
+               <Card className="text-center border-0 shadow-lg">
                   <CardContent className="p-6 flex flex-col items-center justify-center">
                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         <Phone className="h-8 w-8" />
@@ -51,7 +52,7 @@ export default function ContactPage() {
                      </ul>
                   </CardContent>
                </Card>
-               <Card className="text-center border-0 shadow-lg py-4">
+               <Card className="text-center border-0 shadow-lg">
                   <CardContent className="p-6 flex flex-col items-center justify-center">
                      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                         <Mail className="h-8 w-8" />
