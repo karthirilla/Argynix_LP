@@ -2,7 +2,7 @@
 "use client"
 
 import Link from "next/link"
-import { Menu, CircuitBoard, Phone, Wifi, Code, Package, RadioTower } from "lucide-react"
+import { Menu, CircuitBoard, Phone, Wifi, Code, Package, RadioTower, Factory, Bot, Sprout, HomeIcon as Home, Briefcase } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import {
@@ -18,22 +18,17 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/documents", label: "Documents" },
-]
-
 const servicesLinks = [
-    { href: "/services", title: "IOT Solutions", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
-    { href: "/services", title: "Software", description: "Embedded Programming", icon: <Code className="h-5 w-5" /> },
-    { href: "/services", title: "Hardware", description: "PCB Design", icon: <CircuitBoard className="h-5 w-5" /> },
-    { href: "/services", title: "Product", description: "Product Development", icon: <Package className="h-5 w-5" /> },
+    { href: "/services/iot-development", title: "IOT Solutions", description: "IOT Connect", icon: <Wifi className="h-5 w-5" /> },
+    { href: "/services/industrial-automation", title: "Industrial Automation", description: "Embedded Programming", icon: <Factory className="h-5 w-5" /> },
+    { href: "/services/robotics-ai", title: "Robotics & AI", description: "PCB Design", icon: <Bot className="h-5 w-5" /> },
+    { href: "/services/electronics-rd", title: "Electronics R&D", description: "Product Development", icon: <Sprout className="h-5 w-5" /> },
+    { href: "/services/smart-home", title: "Smart Home", description: "Modern Living", icon: <Home className="h-5 w-5" /> },
+    { href: "/services/agri-tech", title: "Agriculture Tech", description: "Smart Farming", icon: <Briefcase className="h-5 w-5" /> },
 ]
 
 const productsLinks = [
-    { href: "#", title: "Argynix IOT", description: "Remote Control v1.0", icon: <RadioTower className="h-5 w-5" /> },
+    { href: "/products/argynix-iot", title: "Argynix IOT", description: "Remote Control v1.0", icon: <RadioTower className="h-5 w-5" /> },
 ]
 
 export function Header() {
@@ -108,6 +103,8 @@ export function Header() {
             </DropdownMenu>
 
             <NavLink href="/documents">Documents</NavLink>
+            <NavLink href="/innovations">Innovations</NavLink>
+
         </nav>
 
         <div className="flex items-center justify-end gap-4">
@@ -160,6 +157,7 @@ export function Header() {
                   ))}
                   
                   <Link href="/documents" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary mt-2">Documents</Link>
+                  <Link href="/innovations" onClick={() => setIsSheetOpen(false)} className="text-lg font-medium transition-colors hover:text-primary">Innovations</Link>
                 </nav>
               </div>
             </SheetContent>

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Check, Wifi, Factory, Bot, Sprout, Home as HomeIcon, Briefcase } from "lucide-react"
+import { Check, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"
@@ -9,37 +9,37 @@ const services = [
     icon: <Wifi className="h-8 w-8 text-primary" />,
     title: "IOT Development",
     description: "End-to-end IoT solutions from hardware to cloud.",
-    href: "#",
+    href: "/services/iot-development",
   },
   {
     icon: <Factory className="h-8 w-8 text-primary" />,
     title: "Industrial Automation",
     description: "Enhancing efficiency with advanced automation.",
-     href: "#",
+     href: "/services/industrial-automation",
   },
   {
     icon: <Bot className="h-8 w-8 text-primary" />,
     title: "Robotics & AI",
     description: "Integrating robotics to streamline operations.",
-     href: "#",
+     href: "/services/robotics-ai",
   },
   {
     icon: <Sprout className="h-8 w-8 text-primary" />,
     title: "Electronics R&D",
     description: "Custom electronics design and development.",
-    href: "#",
+    href: "/services/electronics-rd",
   },
    {
     icon: <HomeIcon className="h-8 w-8 text-primary" />,
     title: "Smart Home Systems",
     description: "Intelligent solutions for modern living.",
-    href: "#",
+    href: "/services/smart-home",
   },
   {
     icon: <Briefcase className="h-8 w-8 text-primary" />,
     title: "Agriculture Tech",
     description: "Smart farming to improve yield and sustainability.",
-    href: "#",
+    href: "/services/agri-tech",
   },
 ];
 

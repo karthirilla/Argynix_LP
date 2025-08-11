@@ -8,32 +8,32 @@ const services = [
   {
     icon: <Wifi className="h-8 w-8 text-primary" />,
     title: "IOT Development",
-    href: "/services",
+    href: "/services/iot-development",
   },
   {
     icon: <Factory className="h-8 w-8 text-primary" />,
     title: "Industrial Automation",
-    href: "/services",
+    href: "/services/industrial-automation",
   },
   {
     icon: <Bot className="h-8 w-8 text-primary" />,
     title: "Robotics & AI",
-    href: "/services",
+    href: "/services/robotics-ai",
   },
   {
     icon: <Sprout className="h-8 w-8 text-primary" />,
     title: "Electronics R&D",
-    href: "/services",
+    href: "/services/electronics-rd",
   },
    {
     icon: <HomeIcon className="h-8 w-8 text-primary" />,
     title: "Smart Home Systems",
-    href: "/services",
+    href: "/services/smart-home",
   },
   {
     icon: <Briefcase className="h-8 w-8 text-primary" />,
     title: "Agriculture Tech",
-    href: "/services",
+    href: "/services/agri-tech",
   },
 ];
 
