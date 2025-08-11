@@ -70,25 +70,6 @@ const benefits = [
     },
 ]
 
-const topImages = [
-    {
-        src: "https://placehold.co/600x400.png",
-        alt: "IoT Project 1",
-        hint: "iot project"
-    },
-    {
-        src: "https://placehold.co/600x400.png",
-        alt: "IoT Project 2",
-        hint: "smart factory"
-    },
-    {
-        src: "https://placehold.co/600x400.png",
-        alt: "IoT Project 3",
-        hint: "pcb design"
-    }
-]
-
-
 export default function Home() {
   return (
     <div className="flex flex-col animate-in fade-in duration-500">
@@ -109,19 +90,6 @@ export default function Home() {
             </div>
         </div>
       </section>
-
-      <section className="py-16">
-        <div className="container mx-auto max-w-7xl px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {topImages.map((image, index) => (
-                    <div key={index} className="overflow-hidden rounded-lg shadow-lg animate-in fade-in-up" style={{ animationDelay: `${index * 200}ms`}}>
-                        <Image src={image.src} alt={image.alt} width={600} height={400} data-ai-hint={image.hint} className="w-full h-full object-cover" />
-                    </div>
-                ))}
-            </div>
-        </div>
-      </section>
-
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-4">
