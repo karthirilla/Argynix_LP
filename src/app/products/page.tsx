@@ -39,7 +39,7 @@ export default function ProductsPage() {
                     <p className="text-muted-foreground mb-4">{product.description}</p>
                   </div>
                   <div className="mt-auto flex justify-center gap-4">
-                    <Button asChild variant="link">
+                    <Button asChild>
                         <Link href={product.href}>View Product</Link>
                     </Button>
                     <Button asChild>
