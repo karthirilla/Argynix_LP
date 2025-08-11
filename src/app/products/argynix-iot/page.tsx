@@ -49,9 +49,14 @@ export default function ArgynixIotPage() {
               <p className="text-lg text-muted-foreground mb-6">
                 Argynix IoT is our flagship product for remote device management. Whether you need to monitor water pumps in a remote field, track vehicles in a fleet, or control industrial machinery, our platform provides the hardware, software, and cloud infrastructure you need to stay connected and in control.
               </p>
-              <Button asChild size="lg">
-                <Link href="/contact">Request a Demo</Link>
-              </Button>
+              <div className="flex flex-wrap gap-4">
+                <Button asChild size="lg">
+                  <Link href="/contact">Request a Demo</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="https://iot.argynix.in/" target="_blank">Live Demo</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
