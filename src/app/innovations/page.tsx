@@ -18,7 +18,7 @@ const innovations = [
   {
     title: "Self-Learning Home Automation Systems",
     description: "We're moving beyond simple commands. Our latest home automation hubs learn user habits and preferences to proactively adjust lighting, climate, and security settings for optimal comfort and energy efficiency.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1512914890251-2f96a9b0bbe2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxob21lJTIwYXV0b21hdGlvbnxlbnwwfHx8fDE3NTUwNjIxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "futuristic home",
     tags: ["AI", "Smart Home", "Energy Efficiency"],
     date: "September 05, 2023",
