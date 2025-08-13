@@ -26,7 +26,7 @@ const innovations = [
   {
     title: "Next-Gen LoRaWAN Protocol for Ultra-Low Power IoT",
     description: "Our R&D team has contributed to a new communication protocol that extends battery life for remote IoT devices to over 10 years, unlocking possibilities for long-term environmental and agricultural monitoring.",
-    image: "https://placehold.co/600x400.png",
+    image: "https://images.unsplash.com/photo-1533979640417-546cbced58b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNnx8cmFkaW98ZW58MHx8fHwxNzU1MDYyMjYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "communication tower",
     tags: ["LoRaWAN", "R&D", "Low Power"],
     date: "August 21, 2023",
