@@ -5,28 +5,10 @@ import { CheckCircle, Target, Eye, Building, Star, Users, Phone, Briefcase, Chec
 
 const teamMembers = [
   {
-    name: "John Doe",
+    name: "Karthi C",
     role: "CEO & Founder",
     image: "https://placehold.co/400x400.png",
     hint: "professional portrait",
-  },
-  {
-    name: "Jane Smith",
-    role: "CTO & Lead Engineer",
-    image: "https://placehold.co/400x400.png",
-    hint: "woman engineer",
-  },
-  {
-    name: "Peter Jones",
-    role: "Head of Automation",
-    image: "https://placehold.co/400x400.png",
-    hint: "man in office",
-  },
-  {
-    name: "Mary Williams",
-    role: "Lead Product Designer",
-    image: "https://placehold.co/400x400.png",
-    hint: "woman designer",
   },
 ];
 
@@ -145,9 +127,9 @@ export default function AboutPage() {
               The brilliant minds behind our innovative solutions.
             </p>
           </div>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+          <div className="mt-12 flex justify-center">
             {teamMembers.map((member) => (
-              <Card key={member.name} className="text-center overflow-hidden group border-0 shadow-lg">
+              <Card key={member.name} className="text-center overflow-hidden group border-0 shadow-lg max-w-sm">
                  <div className="h-64 w-full overflow-hidden">
                     <Image
                         src={member.image}
