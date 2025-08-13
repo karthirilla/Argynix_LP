@@ -87,11 +87,7 @@ export function Header() {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>
-                    <Link href="/services" passHref legacyBehavior>
-                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                        <span className="font-semibold text-base flex items-center gap-1">Our Services</span>
-                      </NavigationMenuLink>
-                    </Link>
+                    <Link href="/services" className={cn(navigationMenuTriggerStyle(), "font-semibold text-base flex items-center gap-1 bg-transparent")}>Our Services</Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[300px] gap-3 p-4">
@@ -110,11 +106,7 @@ export function Header() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>
-                     <Link href="/products" passHref legacyBehavior>
-                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                        <span className="font-semibold text-base flex items-center gap-1">Our Products</span>
-                      </NavigationMenuLink>
-                    </Link>
+                     <Link href="/products" className={cn(navigationMenuTriggerStyle(), "font-semibold text-base flex items-center gap-1 bg-transparent")}>Our Products</Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                      <ul className="grid w-[300px] gap-3 p-4">
