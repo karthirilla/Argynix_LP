@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -60,8 +61,7 @@ export function Header() {
     <Link
       href={href}
       className={cn("py-2 text-lg font-medium transition-colors hover:text-primary", className)}
-      onClick={() => setIsMobileMenuOpen(false)}
-    >
+      onClick={() => setIsMobileMenuOpen(false)}>
       {children}
     </Link>
   );
