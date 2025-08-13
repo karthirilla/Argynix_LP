@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +10,7 @@ const innovations = [
   {
     title: "AI-Powered Predictive Maintenance for Industrial IoT",
     description: "Our new AI model analyzes real-time sensor data to predict machinery failures with 95% accuracy, drastically reducing downtime and maintenance costs. This system is now being deployed with our key manufacturing partners.",
-    image: "https://placehold.co/1200x600.png",
+    image: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8aW90fGVufDB8fHx8MTc1NTA2MjAwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "AI dashboard",
     tags: ["AI", "Machine Learning", "IoT", "Industry 4.0"],
     date: "October 17, 2023",
