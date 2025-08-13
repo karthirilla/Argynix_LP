@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -27,6 +28,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
 const servicesLinks = [
@@ -45,11 +47,11 @@ const productsLinks = [
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  const NavLink = ({ href, children, className, inMobileSheet = false }: { href: string, children: React.ReactNode, className?: string, inMobileSheet?: boolean }) => (
+  const NavLink = ({ href, children, className }: { href: string, children: React.ReactNode, className?: string }) => (
     <Link
       href={href}
       className={cn("font-semibold text-base text-foreground/80 transition-colors hover:text-primary", className)}
-      onClick={() => inMobileSheet && setIsMobileMenuOpen(false)}
+      onClick={() => isMobileMenuOpen && setIsMobileMenuOpen(false)}
     >
       {children}
     </Link>
@@ -70,7 +72,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6 md:gap-10">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2" onClick={() => isMobileMenuOpen && setIsMobileMenuOpen(false)}>
                 <CircuitBoard className="h-8 w-8 text-primary" />
                 <span className="font-bold text-2xl">Argynix</span>
             </Link>
@@ -85,7 +87,11 @@ export function Header() {
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>
-                    <span className="font-semibold text-base flex items-center gap-1">Our Services</span>
+                    <Link href="/services" passHref legacyBehavior>
+                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        <span className="font-semibold text-base flex items-center gap-1">Our Services</span>
+                      </NavigationMenuLink>
+                    </Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[300px] gap-3 p-4">
@@ -104,7 +110,11 @@ export function Header() {
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>
-                     <span className="font-semibold text-base flex items-center gap-1">Our Products</span>
+                     <Link href="/products" passHref legacyBehavior>
+                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        <span className="font-semibold text-base flex items-center gap-1">Our Products</span>
+                      </NavigationMenuLink>
+                    </Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                      <ul className="grid w-[300px] gap-3 p-4">
@@ -148,66 +158,70 @@ export function Header() {
                   <div className="flex flex-col p-6">
                     <SheetHeader className="border-b pb-4 mb-4 text-left">
                         <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
-                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                            <CircuitBoard className="h-8 w-8 text-primary" />
-                            <span className="font-bold text-2xl">Argynix</span>
-                        </Link>
+                         <SheetClose asChild>
+                            <Link href="/" className="flex items-center gap-2">
+                                <CircuitBoard className="h-8 w-8 text-primary" />
+                                <span className="font-bold text-2xl">Argynix</span>
+                            </Link>
+                        </SheetClose>
                     </SheetHeader>
                     <nav className="flex flex-col gap-2">
-                      <MobileNavLink href="/">Home</MobileNavLink>
-                      <MobileNavLink href="/about">About</MobileNavLink>
-                      <MobileNavLink href="/portfolio">Portfolio</MobileNavLink>
+                      <SheetClose asChild><MobileNavLink href="/">Home</MobileNavLink></SheetClose>
+                      <SheetClose asChild><MobileNavLink href="/about">About</MobileNavLink></SheetClose>
+                      <SheetClose asChild><MobileNavLink href="/portfolio">Portfolio</MobileNavLink></SheetClose>
                       
                        <Accordion type="multiple" className="w-full">
                         <AccordionItem value="services">
                            <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">
-                             <Link href="/services" onClick={() => setIsMobileMenuOpen(false)}>Our Services</Link>
+                             <SheetClose asChild><Link href="/services">Our Services</Link></SheetClose>
                            </AccordionTrigger>
                            <AccordionContent className="pl-4">
                                <nav className="flex flex-col gap-2">
                                    {servicesLinks.map((link) => (
-                                    <Link
-                                      key={link.title}
-                                      href={link.href}
-                                      className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
-                                      onClick={() => setIsMobileMenuOpen(false)}
-                                    >
-                                      {link.title}
-                                    </Link>
+                                    <SheetClose asChild key={link.href}>
+                                        <Link
+                                          href={link.href}
+                                          className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
+                                        >
+                                          {link.title}
+                                        </Link>
+                                    </SheetClose>
                                   ))}
                                </nav>
                            </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="products">
                            <AccordionTrigger className="py-2 text-lg font-medium hover:no-underline">
-                             <Link href="/products" onClick={() => setIsMobileMenuOpen(false)}>Our Products</Link>
+                            <SheetClose asChild><Link href="/products">Our Products</Link></SheetClose>
                            </AccordionTrigger>
                            <AccordionContent className="pl-4">
                                <nav className="flex flex-col gap-2">
                                 {productsLinks.map((link) => (
-                                    <Link
-                                      key={link.title}
-                                      href={link.href}
-                                      className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
-                                      onClick={() => setIsMobileMenuOpen(false)}
-                                    >
-                                      {link.title}
-                                    </Link>
+                                    <SheetClose asChild key={link.href}>
+                                        <Link
+                                          href={link.href}
+                                          className="py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary"
+                                        >
+                                          {link.title}
+                                        </Link>
+                                    </SheetClose>
                                   ))}
                                </nav>
                            </AccordionContent>
                         </AccordionItem>
                        </Accordion>
                       
-                      <MobileNavLink href="/documents" className="mt-2">Documents</MobileNavLink>
-                      <MobileNavLink href="/innovations">Innovations</MobileNavLink>
+                      <SheetClose asChild><MobileNavLink href="/documents" className="mt-2">Documents</MobileNavLink></SheetClose>
+                      <SheetClose asChild><MobileNavLink href="/innovations">Innovations</MobileNavLink></SheetClose>
 
-                      <Button asChild variant="outline" className="mt-4">
-                        <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                            <Phone className="h-5 w-5" />
-                            <span className="font-semibold">Contact</span>
-                        </Link>
-                      </Button>
+                      <SheetClose asChild>
+                        <Button asChild variant="outline" className="mt-4">
+                          <Link href="/contact">
+                              <Phone className="h-5 w-5" />
+                              <span className="font-semibold">Contact</span>
+                          </Link>
+                        </Button>
+                      </SheetClose>
                     </nav>
                   </div>
               </ScrollArea>
