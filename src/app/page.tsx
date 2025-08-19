@@ -295,11 +295,11 @@ export default function Home() {
       <section id="how-we-are" className="w-full py-16 md:py-24 bg-secondary">
         <div className="container mx-auto max-w-7xl px-4">
             <div className="grid md:grid-cols-2 gap-16 items-center">
-                <div className="animate-in fade-in-left duration-700">
+                <div className="animate-in fade-in-left duration-700 h-full flex items-center justify-center">
                      <AnimatedDashboard />
                 </div>
-                 <div className="animate-in fade-in-right duration-700 text-center md:text-left">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">How We Are</h2>
+                 <div className="animate-in fade-in-right duration-700">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center">How We Are</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
                         {benefits.map((benefit, index) => (
                             <div key={benefit.title} className="text-center animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
