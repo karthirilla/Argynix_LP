@@ -46,7 +46,7 @@ export default function AboutPage() {
              <div className="grid md:grid-cols-5 gap-12 items-center">
                 <div className="md:col-span-2 text-center md:text-left">
                     <h2 className="text-3xl md:text-4xl font-bold">
-                        About Argynix
+                        About
                     </h2>
                 </div>
                 <div className="md:col-span-3 text-muted-foreground space-y-4 text-lg">
