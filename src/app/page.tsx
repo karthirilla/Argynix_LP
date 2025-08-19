@@ -1,38 +1,38 @@
 
 import Link from "next/link"
-import Image from "next/image"
-import { Bot, Factory, Sprout, Wifi, HomeIcon, Briefcase, Layers, Rocket, ShieldCheck, Zap, Lightbulb } from "lucide-react"
+import { Bot, Factory, Sprout, Wifi, HomeIcon, Briefcase, Layers, Rocket, ShieldCheck, Zap, Lightbulb, MoveRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
 const services = [
   {
-    icon: <Wifi className="h-8 w-8 text-primary" />,
+    icon: <Wifi className="h-8 w-8" />,
     title: "IOT Development",
     href: "/services/iot-development",
   },
   {
-    icon: <Factory className="h-8 w-8 text-primary" />,
+    icon: <Factory className="h-8 w-8" />,
     title: "Industrial Automation",
     href: "/services/industrial-automation",
   },
   {
-    icon: <Bot className="h-8 w-8 text-primary" />,
+    icon: <Bot className="h-8 w-8" />,
     title: "Robotics & AI",
     href: "/services/robotics-ai",
   },
   {
-    icon: <Sprout className="h-8 w-8 text-primary" />,
+    icon: <Sprout className="h-8 w-8" />,
     title: "Electronics R&D",
     href: "/services/electronics-rd",
   },
    {
-    icon: <HomeIcon className="h-8 w-8 text-primary" />,
+    icon: <HomeIcon className="h-8 w-8" />,
     title: "Smart Home Systems",
     href: "/services/smart-home",
   },
   {
-    icon: <Briefcase className="h-8 w-8 text-primary" />,
+    icon: <Briefcase className="h-8 w-8" />,
     title: "Agriculture Tech",
     href: "/services/agri-tech",
   },
@@ -71,250 +71,178 @@ const benefits = [
     },
 ]
 
-const AnimatedHero = () => {
-  return (
-    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-      <defs>
-        <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="1" />
-          <stop offset="70%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-        </radialGradient>
-        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-            <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-        </linearGradient>
-         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="5" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode in="coloredBlur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-
-       {/* Background Waves */}
-        <g opacity="0.5">
-            <path
-                d="M -100 300 Q 100 200, 300 300 T 700 300 T 1100 300"
-                fill="none"
-                stroke="url(#waveGradient)"
-                strokeWidth="150"
-                strokeLinecap="round"
-            >
-                <animateTransform attributeName="transform" type="translate" values="0 0; 0 20; 0 0" dur="8s" repeatCount="indefinite" />
-            </path>
-             <path
-                d="M -100 350 Q 150 450, 400 350 T 850 350"
-                fill="none"
-                stroke="url(#waveGradient)"
-                strokeWidth="120"
-                 strokeLinecap="round"
-            >
-                 <animateTransform attributeName="transform" type="translate" values="0 0; 0 -30; 0 0" dur="10s" begin="-2s" repeatCount="indefinite" />
-            </path>
-        </g>
-      
-      {/* Central Core */}
-      <circle cx="400" cy="300" r="100" fill="url(#coreGradient)" filter="url(#glow)">
-         <animate attributeName="r" values="90;110;90" dur="6s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="400" cy="300" r="20" fill="hsl(var(--primary))" />
-
-      {/* Orbiting Rings */}
-      <g transform="translate(400, 300)">
-        <g transform="rotate(-15)">
-            <ellipse cx="0" cy="0" rx="200" ry="80" stroke="hsl(var(--primary))" strokeWidth="2" strokeOpacity="0.7" fill="none">
-                 <animate attributeName="stroke-dasharray" values="0, 1000; 50, 50; 0, 1000" dur="7s" repeatCount="indefinite" />
-                 <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="20s" repeatCount="indefinite" />
-            </ellipse>
-        </g>
-        <g transform="rotate(30)">
-             <ellipse cx="0" cy="0" rx="280" ry="120" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeOpacity="0.5" fill="none">
-                 <animate attributeName="stroke-dasharray" values="0, 1500; 100, 100; 0, 1500" dur="10s" begin="-3s" repeatCount="indefinite" />
-                 <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="25s" repeatCount="indefinite" />
-            </ellipse>
-        </g>
-         <g transform="rotate(-70)">
-             <ellipse cx="0" cy="0" rx="350" ry="150" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.3" fill="none">
-                 <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="35s" repeatCount="indefinite" />
-            </ellipse>
-        </g>
-      </g>
-
-       {/* Drifting Particles */}
-      <g fill="hsl(var(--primary))" filter="url(#glow)">
-          <circle cx="0" cy="0" r="3" opacity="0.8">
-              <animateMotion path="M100,50 C200,150 300,50 400,150 S500,250 600,150 S700,50 800,100" dur="25s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="0" cy="0" r="2" opacity="0.5">
-              <animateMotion path="M800,500 C700,400 600,500 500,400 S400,300 300,400 S200,500 100,450" dur="30s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="0" cy="0" r="2.5" opacity="0.6">
-               <animateMotion path="M50,600 C150,500 250,550 350,450 S450,350 550,400 S650,500 750,550" dur="28s" repeatCount="indefinite" />
-          </circle>
-      </g>
-
-    </svg>
-  )
-}
-
-const AnimatedDashboard = () => {
-    return (
-        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto rounded-lg bg-card" preserveAspectRatio="xMidYMid meet">
+const GlobeAnimation = () => (
+    <div className="relative w-full h-full flex items-center justify-center">
+        <div className="absolute w-[600px] h-[600px] animate-pulse-slow">
+            <div className="absolute inset-0 border-2 border-primary/20 rounded-full"></div>
+            <div className="absolute inset-10 border-2 border-primary/20 rounded-full"></div>
+            <div className="absolute inset-20 border-2 border-primary/20 rounded-full"></div>
+        </div>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 800 800"
+            className="w-full h-full animate-spin-slow"
+        >
             <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
-                </linearGradient>
-                <filter id="glow-soft" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                    <feMerge>
-                        <feMergeNode in="coloredBlur" />
-                        <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                </filter>
+                <radialGradient id="globe-gradient" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+                </radialGradient>
             </defs>
-
-            {/* Grid */}
-            <g stroke="hsl(var(--border))" strokeOpacity="0.2">
-                {[...Array(20)].map((_, i) => (
-                    <line key={`h-${i}`} x1="0" y1={i * 20} x2="600" y2={i * 20} strokeWidth="0.5" />
-                ))}
-                {[...Array(30)].map((_, i) => (
-                    <line key={`v-${i}`} x1={i * 20} y1="0" x2={i * 20} y2="400" strokeWidth="0.5" />
-                ))}
-            </g>
-
-            {/* Bar Chart */}
-            <g transform="translate(50, 350)">
-                {[
-                    { h: 120, d: '2s' }, { h: 180, d: '2.2s' }, { h: 150, d: '2.4s' },
-                    { h: 90, d: '2.6s' }, { h: 200, d: '2.8s' }, { h: 130, d: '3s' }
-                ].map((bar, i) => (
-                    <rect key={i} x={i * 40} y="-250" width="20" height="250" fill="hsl(var(--primary))" fillOpacity="0.2">
-                        <animate attributeName="y" from="0" to={`-${bar.h}`} dur="1s" begin={bar.d} fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
-                        <animate attributeName="height" from="0" to={`${bar.h}`} dur="1s" begin={bar.d} fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
-                    </rect>
-                ))}
-            </g>
-
-            {/* Line Graph */}
-            <g transform="translate(320, 200)">
-                <path d="M0,150 C50,-50 100,150 150,50 S200,200 250,100" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="1000" strokeDashoffset="1000">
-                    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="2s" begin="0.5s" fill="freeze" />
-                </path>
-                <circle cx="250" cy="100" r="8" fill="hsl(var(--primary))" filter="url(#glow-soft)" opacity="0">
-                    <animate attributeName="r" from="0" to="8" dur="0.5s" begin="2.5s" fill="freeze" />
-                    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="2.5s" fill="freeze" />
-                    <animate attributeName="r" values="8;10;8" dur="2s" begin="3s" repeatCount="indefinite" />
-                </circle>
-            </g>
-
-            {/* Circular Elements */}
-            <g transform="translate(450, 100)">
-                <circle cx="0" cy="0" r="60" fill="none" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.5">
-                    <animate attributeName="r" values="60;65;60" dur="3s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="0" cy="0" r="40" fill="url(#grad1)" stroke="hsl(var(--primary))" strokeWidth="1">
-                     <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="15s" repeatCount="indefinite" />
-                </circle>
-            </g>
-             {/* Text/Labels (dummy) */}
-             <g fill="hsl(var(--muted-foreground))" fontSize="12" fontFamily="sans-serif">
-                <text x="50" y="375">Q1</text>
-                <text x="130" y="375">Q2</text>
-                <text x="210" y="375">Q3</text>
-                <text x="320" y="385">Performance Index</text>
+            <circle cx="400" cy="400" r="300" fill="url(#globe-gradient)" />
+            <g stroke="hsl(var(--primary))" strokeOpacity="0.3">
+                <ellipse cx="400" cy="400" rx="300" ry="100" fill="none" strokeWidth="1" />
+                <ellipse cx="400" cy="400" rx="300" ry="200" fill="none" strokeWidth="1" />
+                <ellipse cx="400" cy="400" rx="300" ry="280" fill="none" strokeWidth="1" />
+                <ellipse transform="rotate(90 400 400)" cx="400" cy="400" rx="300" ry="100" fill="none" strokeWidth="1" />
+                <ellipse transform="rotate(90 400 400)" cx="400" cy="400" rx="300" ry="200" fill="none" strokeWidth="1" />
+                <ellipse transform="rotate(90 400 400)" cx="400" cy="400" rx="300" ry="280" fill="none" strokeWidth="1" />
             </g>
         </svg>
-    );
-};
+    </div>
+);
+
+const AnimatedGrid = () => (
+    <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:3rem_3rem]">
+            <div className="absolute inset-[-10%] animate-pulse-slow">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_300px,hsl(var(--primary-foreground)),transparent)] opacity-20"></div>
+            </div>
+        </div>
+    </div>
+);
+
+const RotatingCube = () => (
+    <div className="w-full h-full flex items-center justify-center [perspective:1000px]">
+        <div className="w-64 h-64 relative [transform-style:preserve-3d] animate-spin-cube">
+            {['front', 'back', 'left', 'right', 'top', 'bottom'].map((side, i) => {
+                const rotation = [
+                    'rotateY(0deg)', 'rotateY(180deg)',
+                    'rotateY(-90deg)', 'rotateY(90deg)',
+                    'rotateX(90deg)', 'rotateX(-90deg)'
+                ][i];
+                return (
+                    <div
+                        key={side}
+                        className={cn(
+                            "absolute w-64 h-64 border border-primary/20 bg-background/50 backdrop-blur-sm flex items-center justify-center",
+                            "flex items-center justify-center p-4"
+                        )}
+                        style={{ transform: `${rotation} translateZ(128px)` }}
+                    >
+                        <div className="text-center">
+                            {benefits[i] && (
+                                <>
+                                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-3">
+                                        {benefits[i].icon}
+                                    </div>
+                                    <h3 className="text-base font-semibold">{benefits[i].title}</h3>
+                                </>
+                            )}
+                        </div>
+                    </div>
+                )
+            })}
+        </div>
+    </div>
+);
+
 
 export default function Home() {
   return (
     <div className="flex flex-col animate-in fade-in duration-500">
-      <section className="relative w-full bg-secondary pt-24 pb-16">
-        <div className="container mx-auto max-w-7xl px-4">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left animate-in fade-in slide-in-from-left duration-700">
-                    <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground">
-                        Building Tomorrow's Connected World
-                    </h1>
-                    <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
-                        We turn your innovative ideas into smart, connected solutions.
+        <section className="relative w-full bg-background overflow-hidden">
+            <AnimatedGrid />
+            <div className="container mx-auto max-w-7xl px-4 relative z-10">
+                <div className="grid md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-5rem)] py-20">
+                    <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left animate-in fade-in slide-in-from-left duration-700">
+                        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground">
+                            Building Tomorrow's Connected World
+                        </h1>
+                        <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
+                            We turn your innovative ideas into smart, connected solutions. From concept to deployment, we engineer the future of IoT and automation.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <Button asChild size="lg">
+                                <Link href="/services">
+                                    Explore Our Services <MoveRight className="ml-2" />
+                                </Link>
+                            </Button>
+                            <Button asChild size="lg" variant="outline">
+                                <Link href="/contact">Get in Touch</Link>
+                            </Button>
+                        </div>
+                    </div>
+                    <div className="hidden md:flex items-center justify-center h-[500px] animate-in fade-in slide-in-from-right duration-700">
+                        <GlobeAnimation />
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+        <section id="about" className="w-full py-16 md:py-24 bg-secondary">
+            <div className="container mx-auto max-w-7xl px-4">
+                <div className="grid lg:grid-cols-5 gap-12 items-center">
+                    <div className="lg:col-span-2 text-center lg:text-left">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About Argynix</h2>
+                        <p className="mt-4 text-lg text-muted-foreground">
+                            Adaptive, solution-driven, and approachable.
+                        </p>
+                    </div>
+                    <div className="lg:col-span-3 text-muted-foreground space-y-4 text-lg">
+                        <p>At Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
+                        <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements. No matter the challenge, our team stays focused and ready to provide the right answers and exceptional service at every stage of your project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="services" className="w-full py-16 md:py-24 bg-background">
+            <div className="container mx-auto max-w-7xl px-4">
+                <div className="space-y-4 text-center mb-12 animate-in fade-in-up duration-700">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What We Do</h2>
+                    <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
+                        We provide end-to-end services to transform your vision into reality.
                     </p>
                 </div>
-                <div className="hidden md:block animate-in fade-in slide-in-from-right duration-700">
-                  <AnimatedHero />
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {services.map((service, index) => (
+                        <Link href={service.href} key={service.title} className="block group">
+                            <Card className="text-center p-6 h-full border-2 border-transparent hover:border-primary transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col bg-secondary/50 overflow-hidden">
+                                <CardHeader className="items-center">
+                                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary transition-all duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground">
+                                        {service.icon}
+                                    </div>
+                                </CardHeader>
+                                <CardContent className="flex flex-col flex-grow">
+                                    <h3 className="text-xl font-semibold mb-2 flex-grow">{service.title}</h3>
+                                    <div className="mt-auto">
+                                        <p className="text-primary font-semibold flex items-center justify-center gap-2">
+                                            Know more <MoveRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                                        </p>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </Link>
+                    ))}
                 </div>
             </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-16 md:py-24 bg-card">
-        <div className="container mx-auto max-w-7xl px-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-3xl md:text-4xl font-bold text-center">About Argynix</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center text-muted-foreground space-y-4 text-lg max-w-3xl mx-auto">
-              <p>Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
-              <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements.</p>
-              <p>We believe in being adaptive, solution-driven, and approachable. No matter the challenge, our team stays cool, focused, and ready to provide the right answers and exceptional service at every stage of your project.</p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-
-      <section id="services" className="w-full py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="space-y-4 text-center mb-12 animate-in fade-in-up duration-700">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">What We Do</h2>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-            {services.map((service, index) => (
-              <Link href={service.href} key={service.title} className="block animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
-                <Card className="text-center p-6 h-full hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
-                        {service.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 flex-grow">{service.title}</h3>
-                    <div className="mt-auto">
-                      <Button>Know more</Button>
-                    </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="how-we-are" className="w-full py-16 md:py-24 bg-secondary">
-        <div className="container mx-auto max-w-7xl px-4">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-                <div className="animate-in fade-in-left duration-700 h-full flex items-center justify-center">
-                     <AnimatedDashboard />
+        <section id="why-choose-us" className="w-full py-16 md:py-24 bg-secondary overflow-hidden">
+            <div className="container mx-auto max-w-7xl px-4">
+                <div className="text-center mb-16">
+                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Why Choose Us?</h2>
+                     <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+                        We combine innovation with reliability to deliver solutions that drive success.
+                    </p>
                 </div>
-                 <div className="animate-in fade-in-right duration-700">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12 text-center">How We Are</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-                        {benefits.map((benefit, index) => (
-                            <div key={benefit.title} className="text-center animate-in fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
-                                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary mb-3">
-                                    {benefit.icon}
-                                </div>
-                                <h3 className="text-base font-semibold">{benefit.title}</h3>
-                                <p className="text-sm text-muted-foreground mt-1">{benefit.description}</p>
-                            </div>
-                        ))}
-                    </div>
+                <div className="relative h-96 flex items-center justify-center">
+                    <RotatingCube />
                 </div>
             </div>
-        </div>
-      </section>
+        </section>
     </div>
   )
 }
