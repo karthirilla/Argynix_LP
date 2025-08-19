@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Target, Eye, Building, Star, Users, Phone, Briefcase, CheckSquare, Lightbulb, Zap, ShieldCheck, Rocket, Layers } from "lucide-react";
+import { CheckCircle, Target, Eye, Lightbulb, Zap, ShieldCheck, Users, Rocket, Layers } from "lucide-react";
 
 const teamMembers = [
   {
@@ -23,7 +23,7 @@ const values = [
         description: "We are committed to delivering robust, reliable, and high-quality products and services."
     },
     {
-        icon: <Eye className="h-8 w-8 text-primary" />,
+        icon: <Users className="h-8 w-8 text-primary" />,
         title: "Client-Centric",
         description: "Our clients' success is our top priority. We work closely to understand and meet their unique needs."
     }
@@ -76,19 +76,17 @@ export default function AboutPage() {
       
       <section className="py-16 md:py-24">
          <div className="container mx-auto max-w-7xl px-4">
-             <Card className="bg-card shadow-lg p-8 md:p-12">
-                <div className="grid md:grid-cols-3 gap-8 items-center">
-                    <div className="md:col-span-1 text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold relative">
-                            <span className="absolute -top-4 -left-4 text-8xl font-bold text-foreground/10 -z-10">Something</span>
-                            About Us
-                        </h2>
-                    </div>
-                    <div className="md:col-span-2 text-muted-foreground space-y-4 text-lg">
-                        <p>Argynix is a pioneer in delivering IoT solutions, industrial automation, robotics integration, and electronics product development. We specialize in creating customizable, high-performance systems that help industries automate processes, improve efficiency, and stay connected through the latest technology. Our expertise spans smart device design, embedded systems, electronics prototyping, PCB development, and full-scale automation solutions. We integrate advanced robotics, intelligent sensors, and control systems to bring seamless automation into manufacturing, logistics, and other industrial sectors. With a strong focus on innovation, reliability, and scalability, we work closely with our clients to develop solutions that meet their exact requirements — whether it’s building a product from the ground up or upgrading existing systems. At Argynix, we believe in delivering precision-engineered products, on-time deployment, and unmatched technical support, making us the trusted partner for businesses seeking future-ready electronic and automation solutions.</p>
-                    </div>
+             <div className="grid md:grid-cols-5 gap-12 items-center">
+                <div className="md:col-span-2 text-center md:text-left">
+                    <h2 className="text-3xl md:text-4xl font-bold">
+                        A Little Bit About Argynix
+                    </h2>
                 </div>
-            </Card>
+                <div className="md:col-span-3 text-muted-foreground space-y-4 text-lg">
+                    <p>Argynix is a pioneer in delivering IoT solutions, industrial automation, robotics integration, and electronics product development. We specialize in creating customizable, high-performance systems that help industries automate processes, improve efficiency, and stay connected through the latest technology.</p>
+                    <p>Our expertise spans smart device design, embedded systems, electronics prototyping, PCB development, and full-scale automation solutions. With a strong focus on innovation, reliability, and scalability, we work closely with our clients to develop solutions that meet their exact requirements.</p>
+                </div>
+            </div>
         </div>
       </section>
 
@@ -102,8 +100,8 @@ export default function AboutPage() {
           </div>
           <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
             {values.map((value) => (
-              <Card key={value.title} className="text-center p-6 h-full shadow-lg border-0">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary mb-4">
+              <Card key={value.title} className="text-center p-6 h-full shadow-lg border-0 bg-background">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
                       {value.icon}
                   </div>
                   <CardHeader>
@@ -117,8 +115,34 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      
+      <section id="why-choose-us" className="w-full py-16 md:py-24 bg-background">
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Why Choose Us?</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+              We combine innovation with reliability to deliver solutions that drive success.
+            </p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {benefits.map((benefit) => (
+               <div key={benefit.title} className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    {benefit.icon}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">{benefit.title}</h3>
+                  <p className="text-muted-foreground mt-1">{benefit.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Meet Our Team</h2>
@@ -138,9 +162,9 @@ export default function AboutPage() {
                         className="h-full w-full object-cover transition-all duration-300 group-hover:scale-110 grayscale hover:grayscale-0 focus:grayscale-0"
                     />
                  </div>
-                <CardHeader className="p-4">
-                  <CardTitle className="text-lg">{member.name}</CardTitle>
-                  <p className="text-primary">{member.role}</p>
+                <CardHeader className="p-6">
+                  <CardTitle className="text-xl">{member.name}</CardTitle>
+                  <p className="text-primary font-semibold">{member.role}</p>
                 </CardHeader>
               </Card>
             ))}
