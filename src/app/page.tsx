@@ -1,3 +1,4 @@
+
 import Link from "next/link"
 import Image from "next/image"
 import { Bot, Factory, Sprout, Wifi, HomeIcon, Briefcase, Layers, Rocket, ShieldCheck, Zap, Lightbulb } from "lucide-react"
@@ -86,6 +87,36 @@ const AnimatedHero = () => {
           </feMerge>
         </filter>
       </defs>
+
+      {/* Grid background */}
+      <g opacity="0.3">
+        <path d="M100 0 V300 M200 0 V300 M300 0 V300 M0 100 H400 M0 200 H400" stroke="hsl(var(--border))" strokeWidth="1" />
+      </g>
+
+      {/* IoT Symbols */}
+      <g fill="hsl(var(--primary))" opacity="0.7">
+        {/* Factory Icon */}
+        <g transform="translate(50, 50)">
+          <path d="M20 10 L20 20 L0 20 L0 8 L10 0 L20 8Z">
+             <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
+          </path>
+        </g>
+
+        {/* Smart Home Icon */}
+        <g transform="translate(320, 80)">
+           <path d="M0 10 L10 0 L20 10 L18 10 L18 20 L12 20 L12 14 L8 14 L8 20 L2 20 L2 10 Z">
+            <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="5s" repeatCount="indefinite" />
+           </path>
+        </g>
+        
+        {/* Wifi Icon */}
+        <g transform="translate(80, 220)">
+          <path d="M0 10 C5 5, 15 5, 20 10 M3 7 C7 4, 13 4, 17 7 M6 4 C8 2, 12 2, 14 4" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round">
+            <animate attributeName="stroke-dasharray" from="0, 20" to="20, 0" dur="3s" begin="1s" repeatCount="indefinite" />
+          </path>
+        </g>
+      </g>
+
 
       <g opacity="0.8" filter="url(#glow)">
         {/* Lines */}
