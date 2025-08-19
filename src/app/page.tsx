@@ -1,6 +1,6 @@
 
 import Link from "next/link"
-import { Bot, Factory, Sprout, Wifi, HomeIcon, Briefcase, Layers, Rocket, ShieldCheck, Zap, Lightbulb, MoveRight } from "lucide-react"
+import { Bot, Factory, Sprout, Wifi, HomeIcon, Briefcase, Layers, Rocket, ShieldCheck, Zap, Lightbulb, MoveRight, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
@@ -55,7 +55,7 @@ const benefits = [
         description: "We are committed to delivering robust and reliable high-quality solutions."
     },
     {
-        icon: <Briefcase className="h-8 w-8 text-primary" />,
+        icon: <Users className="h-8 w-8 text-primary" />,
         title: "Client-Centric",
         description: "Your success is our priority. We build partnerships based on trust and results."
     },
@@ -114,29 +114,32 @@ const AnimatedGrid = () => (
 
 const RotatingCube = () => (
     <div className="w-full h-full flex items-center justify-center [perspective:1000px]">
-        <div className="w-64 h-64 relative [transform-style:preserve-3d] animate-spin-cube">
+        <div className="w-48 h-48 md:w-64 md:h-64 relative [transform-style:preserve-3d] animate-spin-cube">
             {['front', 'back', 'left', 'right', 'top', 'bottom'].map((side, i) => {
                 const rotation = [
                     'rotateY(0deg)', 'rotateY(180deg)',
                     'rotateY(-90deg)', 'rotateY(90deg)',
                     'rotateX(90deg)', 'rotateX(-90deg)'
                 ][i];
+                const translateZ = "128px";
+                const mobileTranslateZ = "96px";
                 return (
                     <div
                         key={side}
                         className={cn(
-                            "absolute w-64 h-64 border border-primary/20 bg-background/50 backdrop-blur-sm flex items-center justify-center",
+                            "absolute w-48 h-48 md:w-64 md:h-64 border border-primary/20 bg-background/50 backdrop-blur-sm flex items-center justify-center",
                             "flex items-center justify-center p-4"
                         )}
-                        style={{ transform: `${rotation} translateZ(128px)` }}
+                        style={{ transform: `${rotation} translateZ(var(--translate-z))` }}
                     >
+                         <style>{`:root { --translate-z: ${mobileTranslateZ}; } @media (min-width: 768px) { :root { --translate-z: ${translateZ}; } }`}</style>
                         <div className="text-center">
                             {benefits[i] && (
                                 <>
-                                    <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-3">
+                                    <div className="mx-auto flex h-12 w-12 md:h-16 md:w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-3">
                                         {benefits[i].icon}
                                     </div>
-                                    <h3 className="text-base font-semibold">{benefits[i].title}</h3>
+                                    <h3 className="text-sm md:text-base font-semibold">{benefits[i].title}</h3>
                                 </>
                             )}
                         </div>
@@ -184,8 +187,8 @@ export default function Home() {
             <div className="container mx-auto max-w-7xl px-4">
                 <div className="grid lg:grid-cols-5 gap-12 items-center">
                     <div className="lg:col-span-2 text-center lg:text-left">
-                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-center lg:text-left">About Argynix</h2>
-                        <p className="mt-4 text-lg text-muted-foreground text-center lg:text-left">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About Argynix</h2>
+                        <p className="mt-4 text-lg text-muted-foreground">
                             Adaptive, solution-driven, and approachable.
                         </p>
                     </div>
@@ -246,3 +249,5 @@ export default function Home() {
     </div>
   )
 }
+
+    
