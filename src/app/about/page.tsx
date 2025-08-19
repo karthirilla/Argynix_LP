@@ -49,7 +49,7 @@ export default function AboutPage() {
                         About
                     </h2>
                 </div>
-                <div className="md:col-span-3 text-muted-foreground space-y-4 text-lg">
+                <div className="md:col-span-3 text-muted-foreground space-y-4 text-lg text-center md:text-left">
                     <p>Argynix is a pioneer in delivering IoT solutions, industrial automation, robotics integration, and electronics product development. We specialize in creating customizable, high-performance systems that help industries automate processes, improve efficiency, and stay connected through the latest technology.</p>
                     <p>Our expertise spans smart device design, embedded systems, electronics prototyping, PCB development, and full-scale automation solutions. With a strong focus on innovation, reliability, and scalability, we work closely with our clients to develop solutions that meet their exact requirements.</p>
                 </div>
@@ -59,13 +59,13 @@ export default function AboutPage() {
 
        <section id="values" className="w-full py-16 md:py-24 bg-secondary">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center mb-12">
+          <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Core Values</h2>
             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
               The principles that guide our work and define our culture.
             </p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-3">
             {values.map((value) => (
               <Card key={value.title} className="text-center p-6 h-full shadow-lg border-0 bg-background">
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary mb-4">
