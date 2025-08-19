@@ -52,7 +52,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4 text-primary-foreground">Quick Links</h4>
             <ul className="space-y-2">
                <li><Link href="/documents" className="text-primary-foreground/70 hover:text-primary-foreground">Documents</Link></li>
-               <li><Link href="#" className="text-primary-foreground/70 hover:text-primary-foreground">Careers</Link></li>
+               <li><Link href="/careers" className="text-primary-foreground/70 hover:text-primary-foreground">Careers</Link></li>
                <li><Link href="/policies" className="text-primary-foreground/70 hover:text-primary-foreground">Policies</Link></li>
                <li><Link href="/contact" className="text-primary-foreground/70 hover:text-primary-foreground">Contact</Link></li>
             </ul>
