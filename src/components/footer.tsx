@@ -60,7 +60,8 @@ export function Footer() {
         </div>
         <hr className="border-primary-foreground/20 my-8" />
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-primary-foreground/70 gap-2 text-center md:text-left">
-          <p>Copyrights © {new Date().getFullYear()} <Link href="/" className="hover:text-primary-foreground">Argynix</Link>. All rights reserved.</p>
+          <p>Copyrights © {new Date().getFullYear()} <Link href="/" className="hover:text-primary-foreground">Argynix</Link>.</p>
+          <p>All rights reserved.</p>
         </div>
       </div>
     </footer>
