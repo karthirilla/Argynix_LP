@@ -7,8 +7,7 @@ const teamMembers = [
   {
     name: "Karthi C",
     role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMG1hbGV8ZW58MHx8fHwxNzU1MDYyNTYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    hint: "professional portrait",
+    image: "/assets/about/karthi.jpg",
   },
 ];
 
@@ -136,8 +135,7 @@ export default function AboutPage() {
                         alt={member.name}
                         width={400}
                         height={400}
-                        data-ai-hint={member.hint}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        className="h-full w-full object-cover transition-all duration-300 group-hover:scale-110 grayscale hover:grayscale-0 focus:grayscale-0"
                     />
                  </div>
                 <CardHeader className="p-4">
