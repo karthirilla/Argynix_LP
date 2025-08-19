@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Target, Eye, Lightbulb, Zap, ShieldCheck, Users, Rocket, Layers } from "lucide-react";
+import { CheckCircle, Target, Users } from "lucide-react";
 
 const teamMembers = [
   {
@@ -29,39 +29,6 @@ const values = [
     }
 ]
 
-const benefits = [
-    {
-        icon: <Lightbulb className="h-8 w-8 text-primary" />,
-        title: "Pioneering Spirit",
-        description: "We thrive on innovation and constantly explore new frontiers in technology."
-    },
-    {
-        icon: <Zap className="h-8 w-8 text-primary" />,
-        title: "Agile & Adaptive",
-        description: "We respond quickly to change and tailor solutions to fit your exact needs."
-    },
-    {
-        icon: <ShieldCheck className="h-8 w-8 text-primary" />,
-        title: "Quality First",
-        description: "We are committed to delivering robust and reliable high-quality solutions."
-    },
-    {
-        icon: <Users className="h-8 w-8 text-primary" />,
-        title: "Client-Centric",
-        description: "Your success is our priority. We build partnerships based on trust and results."
-    },
-    {
-        icon: <Rocket className="h-8 w-8 text-primary" />,
-        title: "Future-Focused",
-        description: "We build solutions that are scalable, sustainable, and ready for tomorrow."
-    },
-    {
-        icon: <Layers className="h-8 w-8 text-primary" />,
-        title: "End-to-End Solutions",
-        description: "From concept to deployment, we manage every step of the product lifecycle."
-    },
-]
-
 export default function AboutPage() {
   return (
     <div className="animate-in fade-in duration-500">
@@ -79,7 +46,7 @@ export default function AboutPage() {
              <div className="grid md:grid-cols-5 gap-12 items-center">
                 <div className="md:col-span-2 text-center md:text-left">
                     <h2 className="text-3xl md:text-4xl font-bold">
-                        A Little Bit About Argynix
+                        About Argynix
                     </h2>
                 </div>
                 <div className="md:col-span-3 text-muted-foreground space-y-4 text-lg">
@@ -116,33 +83,7 @@ export default function AboutPage() {
         </div>
       </section>
       
-      <section id="why-choose-us" className="w-full py-16 md:py-24 bg-background">
-        <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Why Choose Us?</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              We combine innovation with reliability to deliver solutions that drive success.
-            </p>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((benefit) => (
-               <div key={benefit.title} className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                    {benefit.icon}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">{benefit.title}</h3>
-                  <p className="text-muted-foreground mt-1">{benefit.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-secondary">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Meet Our Team</h2>
