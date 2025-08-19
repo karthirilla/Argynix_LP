@@ -28,7 +28,7 @@ export default function IotDevelopmentPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-in fade-in-left duration-700">
-              <Image src="https://placehold.co/600x400.png" alt="IoT Development" width={600} height={400} data-ai-hint="iot devices" className="rounded-lg shadow-lg" />
+              <Image src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb25uZWN0ZWQlMjBkZXZpY2VzfGVufDB8fHx8MTc1NTEzMTgxOHww&ixlib=rb-4.1.0&q=80&w=1080" alt="IoT Development" width={600} height={400} data-ai-hint="iot devices" className="rounded-lg shadow-lg" />
             </div>
             <div className="animate-in fade-in-right duration-700">
               <h2 className="text-3xl font-bold tracking-tight mb-4">From Sensor to Cloud</h2>
