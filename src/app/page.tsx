@@ -184,12 +184,12 @@ export default function Home() {
             <div className="container mx-auto max-w-7xl px-4">
                 <div className="grid lg:grid-cols-5 gap-12 items-center">
                     <div className="lg:col-span-2 text-center lg:text-left">
-                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">About Argynix</h2>
-                        <p className="mt-4 text-lg text-muted-foreground">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-center lg:text-left">About Argynix</h2>
+                        <p className="mt-4 text-lg text-muted-foreground text-center lg:text-left">
                             Adaptive, solution-driven, and approachable.
                         </p>
                     </div>
-                    <div className="lg:col-span-3 text-muted-foreground space-y-4 text-lg">
+                    <div className="lg:col-span-3 text-muted-foreground space-y-4 text-lg text-center lg:text-left">
                         <p>At Argynix, we deliver innovative and customizable solutions in IoT, industrial automation, robotics integration, and electronics product development. We combine cutting-edge technology with practical engineering to help businesses automate, connect, and innovate efficiently.</p>
                         <p>Our mission is to design and develop tailored solutions — whether starting from scratch or enhancing your existing systems — to meet your exact requirements. No matter the challenge, our team stays focused and ready to provide the right answers and exceptional service at every stage of your project.</p>
                     </div>
