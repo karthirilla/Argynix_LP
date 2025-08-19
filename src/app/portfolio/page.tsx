@@ -2,13 +2,19 @@ import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Portfolio | Our Work at Argynix",
+  description: "Explore the portfolio of Argynix. See our work in smart agriculture, home automation, industrial IoT, custom electronics, robotics, and wearable technology.",
+};
 
 const projects = [
   {
     title: "Smart Agriculture System",
     category: "Agri-Tech",
     description: "An IoT-based system for real-time monitoring of soil moisture, temperature, and nutrient levels, coupled with an automated irrigation system. Increased crop yield by 20%.",
-    image: "/assets/portfolio/smart-agriculture-system.png",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c3874440?q=80&w=2070&auto=format&fit=crop",
     hint: "agriculture technology",
     tags: ["IoT", "Sensors", "Cloud", "React"],
   },
@@ -16,7 +22,7 @@ const projects = [
     title: "Home Automation Hub",
     category: "Smart Home",
     description: "A centralized hub to control lighting, climate, security systems, and entertainment devices in smart homes via a mobile app. Features voice control integration with Alexa and Google Assistant.",
-    image: "/assets/portfolio/home-automation-hub.png",
+    image: "https://images.unsplash.com/photo-1596205251936-a2d13b37c0fa?q=80&w=1974&auto=format&fit=crop",
     hint: "modern living room",
     tags: ["IoT", "Mobile App", "Voice Control"],
   },
@@ -24,7 +30,7 @@ const projects = [
     title: "Industrial Monitoring Dashboard",
     category: "Industrial Automation",
     description: "Real-time monitoring of industrial machinery to predict maintenance needs, prevent downtime, and optimize performance. Implemented on the factory floor of a major manufacturing client.",
-    image: "/assets/portfolio/industrial-monitoring-dashboard.png",
+    image: "https://images.unsplash.com/photo-1547994883-71870a258416?q=80&w=2070&auto=format&fit=crop",
     hint: "industrial dashboard",
     tags: ["SCADA", "IoT", "Data Analytics", "Cloud"],
   },
@@ -32,7 +38,7 @@ const projects = [
     title: "Custom IoT Sensor Node",
     category: "Electronics",
     description: "Designed and developed a low-power, multi-sensor node for environmental monitoring. The device has a battery life of over 5 years and communicates via LoRaWAN.",
-    image: "/assets/portfolio/custom-iot-sensor-node.png",
+    image: "https://images.unsplash.com/photo-1581452397-033737227444?q=80&w=2070&auto=format&fit=crop",
     hint: "circuit sensor",
     tags: ["PCB Design", "Firmware", "LoRaWAN"],
   },
@@ -40,7 +46,7 @@ const projects = [
     title: "Warehouse AGV System",
     category: "Robotics",
     description: "An fleet of autonomous guided vehicles (AGVs) for automating material transport in a large warehouse, improving efficiency and reducing human error.",
-    image: "/assets/portfolio/warehouse-agv-system.png",
+    image: "https://images.unsplash.com/photo-1674059048324-5d8a4362e3d7?q=80&w=2070&auto=format&fit=crop",
     hint: "warehouse robot",
     tags: ["Robotics", "AGV", "Automation"],
   },
@@ -48,7 +54,7 @@ const projects = [
     title: "Wearable Health Monitor",
     category: "Electronics",
     description: "A wearable device that tracks vital signs like heart rate, SpO2, and activity levels, syncing data to a mobile app for personal health insights.",
-    image: "/assets/portfolio/wearable-health-monitor.png",
+    image: "https://images.unsplash.com/photo-1508138221679-760a23a2285b?q=80&w=1974&auto=format&fit=crop",
     hint: "wearable technology",
     tags: ["Wearable", "IoT", "Bluetooth", "Mobile App"],
   },

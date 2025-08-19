@@ -2,6 +2,12 @@
 import { ContactForm } from "@/components/contact-form";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Argynix | Get in Touch",
+  description: "Contact Argynix for inquiries about our IoT solutions, industrial automation, and electronics development services. Our team is ready to answer your questions and discuss your project.",
+};
 
 export default function ContactPage() {
   return (

@@ -3,6 +3,12 @@ import Image from "next/image"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Electronics R&D Services",
+  description: "Expert electronics R&D services from Argynix. We specialize in custom PCB design, firmware development, prototyping, and wireless communication solutions to bring your product idea to life.",
+};
 
 const features = [
   "Custom PCB Design and Layout",

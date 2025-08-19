@@ -3,6 +3,12 @@ import Image from "next/image"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Industrial Automation Services",
+  description: "Argynix delivers robust industrial automation solutions, including PLC and SCADA integration, process automation, predictive maintenance, and IIoT implementation to enhance productivity and safety.",
+};
 
 const features = [
   "PLC and SCADA System Integration",

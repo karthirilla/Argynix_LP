@@ -3,6 +3,12 @@ import { Check, Wifi, Factory, Bot, Sprout, HomeIcon, Briefcase } from "lucide-r
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Services | IoT, Automation, Robotics & Electronics",
+  description: "Explore the comprehensive services offered by Argynix, including IoT development, industrial automation, robotics & AI, electronics R&D, smart home systems, and agriculture technology.",
+};
 
 const services = [
   {

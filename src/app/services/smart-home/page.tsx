@@ -3,6 +3,12 @@ import Image from "next/image"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Smart Home Automation Systems",
+  description: "Create an intelligent living space with Argynix. We design and install smart home systems for seamless control over lighting, climate, security, and entertainment.",
+};
 
 const features = [
   "Centralized Lighting and Climate Control",

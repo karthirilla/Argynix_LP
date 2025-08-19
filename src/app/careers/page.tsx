@@ -5,6 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, MapPin, Clock, ArrowRight, Building, Users, Award, Coffee, Heart, Lightbulb } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Careers at Argynix | Join Our Team",
+  description: "Explore career opportunities at Argynix. We're looking for passionate and innovative individuals to join our team and help us build the future of technology. View our open positions.",
+};
 
 const jobOpenings = [
   {

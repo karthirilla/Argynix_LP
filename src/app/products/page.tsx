@@ -4,6 +4,12 @@ import { RadioTower } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Products | Argynix Technology Solutions",
+  description: "Explore the range of innovative products from Argynix, including our powerful Argynix IoT platform for remote monitoring and control. Discover solutions designed to bring your projects to life.",
+};
 
 const products = [
   {

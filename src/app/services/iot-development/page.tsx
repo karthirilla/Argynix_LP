@@ -3,6 +3,12 @@ import Image from "next/image"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "IoT Development Services",
+  description: "End-to-end IoT development services from Argynix. We build custom hardware, firmware, and cloud platforms to connect your devices and deliver actionable insights for your business.",
+};
 
 const features = [
   "Custom Hardware Design & Prototyping",

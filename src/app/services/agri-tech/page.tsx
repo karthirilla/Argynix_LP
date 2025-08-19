@@ -3,6 +3,12 @@ import Image from "next/image"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Agriculture Technology Solutions",
+  description: "Empowering farmers with data-driven Agri-Tech solutions. Argynix provides automated irrigation, crop health monitoring, and farm management platforms to increase yield and promote sustainability.",
+};
 
 const features = [
   "Soil and Environmental Sensing",

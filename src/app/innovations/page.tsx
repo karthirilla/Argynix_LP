@@ -5,6 +5,12 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Lightbulb } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Innovation Showcase | Argynix AI & R&D",
+  description: "Explore the latest innovations from Argynix, including breakthroughs in AI-powered predictive maintenance, self-learning home automation, and next-generation IoT protocols.",
+};
 
 const innovations = [
   {

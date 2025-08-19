@@ -3,6 +3,12 @@ import Image from "next/image"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Robotics & AI Integration Services",
+  description: "Integrate intelligent robotics and AI into your operations with Argynix. We provide custom robot integration, machine vision systems, and AI-powered process optimization to drive efficiency.",
+};
 
 const features = [
   "Custom Robot Integration (AGVs, Robotic Arms)",

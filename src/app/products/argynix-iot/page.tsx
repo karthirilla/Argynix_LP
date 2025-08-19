@@ -3,6 +3,12 @@ import Image from "next/image"
 import { Check, RadioTower, Wifi, Smartphone, Cloud } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Argynix IoT - V 4.1 | Remote Monitoring & Control Platform",
+  description: "Discover Argynix IoT - V 4.1, our powerful and flexible platform for remote monitoring and control. Features long-range communication, multi-sensor support, and cloud-powered data analytics.",
+};
 
 const features = [
   {

@@ -6,9 +6,13 @@ import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: "Argynix - IOT and Electronics Solutions",
+  title: {
+    default: "Argynix - IoT and Electronics Solutions",
+    template: "%s | Argynix",
+  },
   description: "Argynix is a leading IoT solutions, industrial automation, robotics integration, and electronics product development company. We deliver customizable technology solutions for industries and businesses.",
-}
+  keywords: ["IoT", "Industrial Automation", "Robotics", "Electronics R&D", "Smart Home", "Agri-Tech", "Embedded Systems"],
+};
 
 export default function RootLayout({
   children,

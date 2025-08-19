@@ -2,6 +2,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Shield, FileText, Cookie } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Company Policies | Argynix",
+  description: "Review the company policies for Argynix, including our Privacy Policy, Terms of Service, and Cookie Policy. Learn about our commitment to transparency, security, and trust.",
+};
 
 const policies = [
   {

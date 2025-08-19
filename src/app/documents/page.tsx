@@ -1,6 +1,13 @@
+
 import { FileText, Download } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Documents & Resources | Argynix",
+  description: "Access and download official documents from Argynix, including product catalogs, technical guides, API documentation, and our Service Level Agreement (SLA).",
+};
 
 const documents = [
   {
