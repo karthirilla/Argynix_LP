@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Target, Users } from "lucide-react";
+import React, { useState, useEffect } from 'react';
 
 const teamMembers = [
   {
@@ -31,26 +32,35 @@ const values = [
 ]
 
 const ParticleAnimation = () => {
-    const particles = Array.from({ length: 30 });
+    const [particles, setParticles] = useState<React.CSSProperties[]>([]);
+  
+    useEffect(() => {
+        const generateParticles = () => {
+            const newParticles = Array.from({ length: 30 }).map(() => ({
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                width: `${Math.random() * 3 + 1}px`,
+                height: `${Math.random() * 3 + 1}px`,
+                animationDelay: `${Math.random() * 10}s`,
+                animationDuration: `${Math.random() * 10 + 10}s`,
+                '--particle-x': `${(Math.random() - 0.5) * 200}px`,
+                '--particle-y': `${(Math.random() - 0.5) * 200}px`,
+                '--particle-scale': `${Math.random() * 0.5 + 0.5}`,
+            } as React.CSSProperties));
+            setParticles(newParticles);
+        };
+        generateParticles();
+    }, []);
+
     return (
         <div className="absolute inset-0 overflow-hidden">
-            {particles.map((_, i) => {
-                const style = {
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    width: `${Math.random() * 3 + 1}px`,
-                    height: `${Math.random() * 3 + 1}px`,
-                    animationDelay: `${Math.random() * 10}s`,
-                    animationDuration: `${Math.random() * 10 + 10}s`,
-                };
-                return (
-                    <div
-                        key={i}
-                        className="absolute rounded-full bg-primary/40 animate-particle"
-                        style={style}
-                    />
-                );
-            })}
+            {particles.map((style, i) => (
+                <div
+                    key={i}
+                    className="absolute rounded-full bg-primary/40 animate-particle"
+                    style={style}
+                />
+            ))}
             <style jsx>{`
                 @keyframes particle {
                     0% {
@@ -61,10 +71,7 @@ const ParticleAnimation = () => {
                         opacity: 0.5;
                     }
                     100% {
-                        transform: translate(
-                            ${(Math.random() - 0.5) * 200}px,
-                            ${(Math.random() - 0.5) * 200}px
-                        ) scale(${Math.random() * 0.5 + 0.5});
+                        transform: translate(var(--particle-x), var(--particle-y)) scale(var(--particle-scale));
                         opacity: 0;
                     }
                 }
