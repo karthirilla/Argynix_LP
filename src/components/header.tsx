@@ -85,11 +85,9 @@ export function Header() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>
-                    <Link href="/services" legacyBehavior passHref>
-                      <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold text-base flex items-center gap-1 bg-transparent")}>Our Services</NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuTrigger>
+                  <Link href="/services" passHref>
+                    <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "font-semibold text-base flex items-center gap-1 bg-transparent")}>Our Services</NavigationMenuTrigger>
+                  </Link>
                   <NavigationMenuContent>
                     <ul className="grid w-[300px] gap-3 p-4">
                       {servicesLinks.map((component) => (
@@ -106,11 +104,9 @@ export function Header() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>
-                     <Link href="/products" legacyBehavior passHref>
-                      <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "font-semibold text-base flex items-center gap-1 bg-transparent")}>Our Products</NavigationMenuLink>
-                    </Link>
-                  </NavigationMenuTrigger>
+                  <Link href="/products" passHref>
+                    <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "font-semibold text-base flex items-center gap-1 bg-transparent")}>Our Products</NavigationMenuTrigger>
+                  </Link>
                   <NavigationMenuContent>
                      <ul className="grid w-[300px] gap-3 p-4">
                       {productsLinks.map((component) => (
