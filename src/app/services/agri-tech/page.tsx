@@ -28,7 +28,7 @@ export default function AgriTechPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-in fade-in-left duration-700">
-              <Image src="/assets/Our Services/Agriculture Tech.png" alt="Agri-Tech" width={600} height={400} data-ai-hint="smart farming" className="rounded-lg shadow-lg" />
+              <Image src="/assets/our-services/agriculture-tech.png" alt="Agri-Tech" width={600} height={400} data-ai-hint="smart farming" className="rounded-lg shadow-lg" />
             </div>
             <div className="animate-in fade-in-right duration-700">
               <h2 className="text-3xl font-bold tracking-tight mb-4">The Digital Green Revolution</h2>
