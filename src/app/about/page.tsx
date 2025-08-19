@@ -29,11 +29,22 @@ const values = [
     }
 ]
 
+const AnimatedGrid = () => (
+    <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:3rem_3rem]">
+            <div className="absolute inset-[-10%] animate-pulse-slow">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_300px,hsl(var(--primary-foreground)),transparent)] opacity-20"></div>
+            </div>
+        </div>
+    </div>
+);
+
 export default function AboutPage() {
   return (
     <div className="animate-in fade-in duration-500">
-      <section className="bg-secondary py-20 md:py-28">
-        <div className="container mx-auto max-w-7xl px-4 text-center">
+      <section className="relative bg-secondary py-20 md:py-28 overflow-hidden">
+        <AnimatedGrid />
+        <div className="container mx-auto max-w-7xl px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Argynix</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
             We are a team of passionate engineers, designers, and problem-solvers dedicated to shaping the future of technology through innovative electronics and automation solutions.
