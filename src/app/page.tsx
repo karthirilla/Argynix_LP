@@ -70,6 +70,74 @@ const benefits = [
     },
 ]
 
+const AnimatedHero = () => {
+  return (
+    <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+      <defs>
+        <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
+        </linearGradient>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
+          <feMerge>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <g opacity="0.8" filter="url(#glow)">
+        {/* Lines */}
+        <line x1="50" y1="150" x2="150" y2="50" stroke="url(#line-gradient)" strokeWidth="2">
+           <animate attributeName="stroke-dasharray" from="0, 200" to="200, 0" dur="5s" repeatCount="indefinite" />
+        </line>
+        <line x1="50" y1="150" x2="150" y2="250" stroke="url(#line-gradient)" strokeWidth="2">
+           <animate attributeName="stroke-dasharray" from="0, 200" to="200, 0" dur="5s" begin="1s" repeatCount="indefinite" />
+        </line>
+        <line x1="150" y1="50" x2="250" y2="50" stroke="url(#line-gradient)" strokeWidth="2">
+            <animate attributeName="stroke-dasharray" from="0, 100" to="100, 0" dur="4s" repeatCount="indefinite" />
+        </line>
+        <line x1="150" y1="250" x2="250" y2="250" stroke="url(#line-gradient)" strokeWidth="2">
+            <animate attributeName="stroke-dasharray" from="0, 100" to="100, 0" dur="4s" begin="0.5s" repeatCount="indefinite" />
+        </line>
+        <line x1="250" y1="50" x2="350" y2="150" stroke="url(#line-gradient)" strokeWidth="2">
+            <animate attributeName="stroke-dasharray" from="0, 200" to="200, 0" dur="5s" begin="2s" repeatCount="indefinite" />
+        </line>
+        <line x1="250" y1="250" x2="350" y2="150" stroke="url(#line-gradient)" strokeWidth="2">
+            <animate attributeName="stroke-dasharray" from="0, 200" to="200, 0" dur="5s" begin="2.5s" repeatCount="indefinite" />
+        </line>
+        <line x1="150" y1="50" x2="150" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="4, 4">
+             <animate attributeName="stroke-dashoffset" from="0" to="16" dur="1s" repeatCount="indefinite" />
+        </line>
+         <line x1="250" y1="50" x2="250" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="4, 4">
+             <animate attributeName="stroke-dashoffset" from="16" to="0" dur="1s" repeatCount="indefinite" />
+        </line>
+      </g>
+
+      {/* Nodes */}
+      <circle cx="50" cy="150" r="8" fill="hsl(var(--primary))">
+        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="0s" />
+      </circle>
+      <circle cx="150" cy="50" r="8" fill="hsl(var(--primary))">
+        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="0.5s" />
+      </circle>
+       <circle cx="150" cy="250" r="8" fill="hsl(var(--primary))">
+        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="0.7s" />
+      </circle>
+      <circle cx="250" cy="50" r="8" fill="hsl(var(--primary))">
+        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="1s" />
+      </circle>
+      <circle cx="250" cy="250" r="8" fill="hsl(var(--primary))">
+        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="1.2s" />
+      </circle>
+      <circle cx="350" cy="150" r="8" fill="hsl(var(--primary))">
+        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="1.5s" />
+      </circle>
+    </svg>
+  )
+}
+
 export default function Home() {
   return (
     <div className="flex flex-col animate-in fade-in duration-500">
@@ -85,7 +153,7 @@ export default function Home() {
                     </p>
                 </div>
                 <div className="hidden md:block animate-in fade-in slide-in-from-right duration-700">
-                  <Image src="https://placehold.co/705x550.png" alt="Hero Illustration" width={705} height={550} data-ai-hint="iot connectivity" />
+                  <AnimatedHero />
                 </div>
             </div>
         </div>
