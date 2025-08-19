@@ -34,7 +34,7 @@ export default function AboutPage() {
     <div className="animate-in fade-in duration-500">
       <section className="bg-secondary py-20 md:py-28">
         <div className="container mx-auto max-w-7xl px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">About Argynix</h1>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Argynix</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
             We are a team of passionate engineers, designers, and problem-solvers dedicated to shaping the future of technology through innovative electronics and automation solutions.
           </p>
