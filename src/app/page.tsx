@@ -160,6 +160,78 @@ const AnimatedHero = () => {
   )
 }
 
+const AnimatedDashboard = () => {
+    return (
+        <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto rounded-lg bg-card" preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.1" />
+                </linearGradient>
+                <filter id="glow-soft" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            {/* Grid */}
+            <g stroke="hsl(var(--border))" strokeOpacity="0.2">
+                {[...Array(20)].map((_, i) => (
+                    <line key={`h-${i}`} x1="0" y1={i * 20} x2="600" y2={i * 20} strokeWidth="0.5" />
+                ))}
+                {[...Array(30)].map((_, i) => (
+                    <line key={`v-${i}`} x1={i * 20} y1="0" x2={i * 20} y2="400" strokeWidth="0.5" />
+                ))}
+            </g>
+
+            {/* Bar Chart */}
+            <g transform="translate(50, 350)">
+                {[
+                    { h: 120, d: '2s' }, { h: 180, d: '2.2s' }, { h: 150, d: '2.4s' },
+                    { h: 90, d: '2.6s' }, { h: 200, d: '2.8s' }, { h: 130, d: '3s' }
+                ].map((bar, i) => (
+                    <rect key={i} x={i * 40} y="-250" width="20" height="250" fill="hsl(var(--primary))" fillOpacity="0.2">
+                        <animate attributeName="y" from="0" to={`-${bar.h}`} dur="1s" begin={bar.d} fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+                        <animate attributeName="height" from="0" to={`${bar.h}`} dur="1s" begin={bar.d} fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1" />
+                    </rect>
+                ))}
+            </g>
+
+            {/* Line Graph */}
+            <g transform="translate(320, 200)">
+                <path d="M0,150 C50,-50 100,150 150,50 S200,200 250,100" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="1000" strokeDashoffset="1000">
+                    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="2s" begin="0.5s" fill="freeze" />
+                </path>
+                <circle cx="250" cy="100" r="8" fill="hsl(var(--primary))" filter="url(#glow-soft)" opacity="0">
+                    <animate attributeName="r" from="0" to="8" dur="0.5s" begin="2.5s" fill="freeze" />
+                    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="2.5s" fill="freeze" />
+                    <animate attributeName="r" values="8;10;8" dur="2s" begin="3s" repeatCount="indefinite" />
+                </circle>
+            </g>
+
+            {/* Circular Elements */}
+            <g transform="translate(450, 100)">
+                <circle cx="0" cy="0" r="60" fill="none" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.5">
+                    <animate attributeName="r" values="60;65;60" dur="3s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="0" cy="0" r="40" fill="url(#grad1)" stroke="hsl(var(--primary))" strokeWidth="1">
+                     <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="15s" repeatCount="indefinite" />
+                </circle>
+            </g>
+             {/* Text/Labels (dummy) */}
+             <g fill="hsl(var(--muted-foreground))" fontSize="12" fontFamily="sans-serif">
+                <text x="50" y="375">Q1</text>
+                <text x="130" y="375">Q2</text>
+                <text x="210" y="375">Q3</text>
+                <text x="320" y="385">Performance Index</text>
+            </g>
+        </svg>
+    );
+};
+
 export default function Home() {
   return (
     <div className="flex flex-col animate-in fade-in duration-500">
@@ -224,7 +296,7 @@ export default function Home() {
         <div className="container mx-auto max-w-7xl px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="hidden md:block animate-in fade-in-left duration-700">
-                     <Image src="https://placehold.co/600x400.png" alt="How We Are" width={600} height={400} data-ai-hint="iot dashboard" className="rounded-lg" />
+                     <AnimatedDashboard />
                 </div>
                  <div className="animate-in fade-in-right duration-700 text-center">
                     <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-12">How We Are</h2>
