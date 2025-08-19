@@ -70,14 +70,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-6 md:gap-10">
+        <div className="flex items-center gap-6 lg:gap-10">
             <Link href="/" className="flex items-center gap-2" onClick={() => isMobileMenuOpen && setIsMobileMenuOpen(false)}>
                 <CircuitBoard className="h-8 w-8 text-primary" />
                 <span className="font-bold text-2xl">Argynix</span>
             </Link>
         </div>
 
-        <nav className="hidden md:flex flex-1 items-center justify-center gap-6 text-sm font-medium">
+        <nav className="hidden lg:flex flex-1 items-center justify-center gap-6 text-sm font-medium">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/about">About</NavLink>
             <NavLink href="/portfolio">Portfolio</NavLink>
@@ -131,7 +131,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center justify-end gap-4">
-          <Button asChild variant="ghost" className="hidden md:flex items-center gap-2">
+          <Button asChild variant="ghost" className="hidden lg:flex items-center gap-2">
             <Link href="/contact">
               <Phone className="h-5 w-5" />
               <span className="font-semibold">Contact</span>
@@ -139,7 +139,7 @@ export function Header() {
           </Button>
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="lg:hidden">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
