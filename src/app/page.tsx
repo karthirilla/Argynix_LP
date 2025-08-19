@@ -112,7 +112,7 @@ const AnimatedHero = () => {
         {/* Wifi Icon */}
         <g transform="translate(80, 220)">
           <path d="M0 10 C5 5, 15 5, 20 10 M3 7 C7 4, 13 4, 17 7 M6 4 C8 2, 12 2, 14 4" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round">
-            <animate attributeName="stroke-dasharray" from="0, 20" to="20, 0" dur="3s" begin="1s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1s" repeatCount="indefinite" />
           </path>
         </g>
       </g>
@@ -120,23 +120,23 @@ const AnimatedHero = () => {
 
       <g opacity="0.8" filter="url(#glow)">
         {/* Lines */}
-        <line x1="50" y1="150" x2="150" y2="50" stroke="url(#line-gradient)" strokeWidth="2">
-           <animate attributeName="stroke-dasharray" from="0, 200" to="200, 0" dur="5s" repeatCount="indefinite" />
+        <line x1="50" y1="150" x2="150" y2="50" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 200">
+           <animate attributeName="stroke-dashoffset" from="0" to="-210" dur="3s" repeatCount="indefinite" />
         </line>
-        <line x1="50" y1="150" x2="150" y2="250" stroke="url(#line-gradient)" strokeWidth="2">
-           <animate attributeName="stroke-dasharray" from="0, 200" to="200, 0" dur="5s" begin="1s" repeatCount="indefinite" />
+        <line x1="50" y1="150" x2="150" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 200">
+           <animate attributeName="stroke-dashoffset" from="0" to="-210" dur="3s" begin="0.5s" repeatCount="indefinite" />
         </line>
-        <line x1="150" y1="50" x2="250" y2="50" stroke="url(#line-gradient)" strokeWidth="2">
-            <animate attributeName="stroke-dasharray" from="0, 100" to="100, 0" dur="4s" repeatCount="indefinite" />
+        <line x1="150" y1="50" x2="250" y2="50" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 100">
+            <animate attributeName="stroke-dashoffset" from="0" to="-110" dur="2.5s" repeatCount="indefinite" />
         </line>
-        <line x1="150" y1="250" x2="250" y2="250" stroke="url(#line-gradient)" strokeWidth="2">
-            <animate attributeName="stroke-dasharray" from="0, 100" to="100, 0" dur="4s" begin="0.5s" repeatCount="indefinite" />
+        <line x1="150" y1="250" x2="250" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 100">
+            <animate attributeName="stroke-dashoffset" from="0" to="-110" dur="2.5s" begin="0.2s" repeatCount="indefinite" />
         </line>
-        <line x1="250" y1="50" x2="350" y2="150" stroke="url(#line-gradient)" strokeWidth="2">
-            <animate attributeName="stroke-dasharray" from="0, 200" to="200, 0" dur="5s" begin="2s" repeatCount="indefinite" />
+        <line x1="250" y1="50" x2="350" y2="150" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 200">
+            <animate attributeName="stroke-dashoffset" from="0" to="-210" dur="3s" begin="1s" repeatCount="indefinite" />
         </line>
-        <line x1="250" y1="250" x2="350" y2="150" stroke="url(#line-gradient)" strokeWidth="2">
-            <animate attributeName="stroke-dasharray" from="0, 200" to="200, 0" dur="5s" begin="2.5s" repeatCount="indefinite" />
+        <line x1="250" y1="250" x2="350" y2="150" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 200">
+            <animate attributeName="stroke-dashoffset" from="0" to="-210" dur="3s" begin="1.5s" repeatCount="indefinite" />
         </line>
         <line x1="150" y1="50" x2="150" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="4, 4">
              <animate attributeName="stroke-dashoffset" from="0" to="16" dur="1s" repeatCount="indefinite" />
