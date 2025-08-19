@@ -1,3 +1,4 @@
+
 import Image from "next/image"
 import { Check, RadioTower, Wifi, Smartphone, Cloud } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -42,7 +43,7 @@ export default function ArgynixIotPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-in fade-in-left duration-700">
-              <Image src="https://images.unsplash.com/photo-1596009007210-31e8c4959453?q=80&w=2070&auto=format&fit=crop" alt="Argynix IoT Device" width={600} height={400} data-ai-hint="iot device" className="rounded-lg shadow-lg" />
+              <Image src="/assets/products/argynix-iot/argynix.png" alt="Argynix IoT Device" width={600} height={400} data-ai-hint="iot device" className="rounded-lg shadow-lg" />
             </div>
             <div className="animate-in fade-in-right duration-700">
               <h2 className="text-3xl font-bold tracking-tight mb-4">Total Control, Anywhere</h2>
