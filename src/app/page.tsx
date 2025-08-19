@@ -75,10 +75,10 @@ const AnimatedHero = () => {
   return (
     <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
       <defs>
-        <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
-        </linearGradient>
+        <radialGradient id="center-glow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+        </radialGradient>
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="3.5" result="coloredBlur" />
           <feMerge>
@@ -86,85 +86,59 @@ const AnimatedHero = () => {
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
+        <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+          <stop offset="50%" stopColor="hsl(var(--primary))" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
+        </linearGradient>
       </defs>
 
-      {/* Grid background */}
-      <g opacity="0.3">
-        <path d="M100 0 V300 M200 0 V300 M300 0 V300 M0 100 H400 M0 200 H400" stroke="hsl(var(--border))" strokeWidth="1" />
+      {/* Faint Background Grid */}
+      <g opacity="0.1">
+        <path d="M 0 75 H 400 M 0 150 H 400 M 0 225 H 400 M 100 0 V 300 M 200 0 V 300 M 300 0 V 300" stroke="hsl(var(--border))" strokeWidth="1" />
+        <path d="M 50 0 L 400 350 M 0 150 L 400 -50" stroke="hsl(var(--border))" strokeWidth="0.5" />
       </g>
 
-      {/* IoT Symbols */}
-      <g fill="hsl(var(--primary))" opacity="0.7">
-        {/* Factory Icon */}
-        <g transform="translate(50, 50)">
-          <path d="M20 10 L20 20 L0 20 L0 8 L10 0 L20 8Z">
-             <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
-          </path>
-        </g>
+      {/* Central Orb */}
+      <circle cx="200" cy="150" r="20" fill="url(#center-glow)" />
+      <circle cx="200" cy="150" r="12" fill="hsl(var(--primary))" filter="url(#glow)">
+        <animate attributeName="r" values="12;15;12" dur="3s" repeatCount="indefinite" />
+      </circle>
 
-        {/* Smart Home Icon */}
-        <g transform="translate(320, 80)">
-           <path d="M0 10 L10 0 L20 10 L18 10 L18 20 L12 20 L12 14 L8 14 L8 20 L2 20 L2 10 Z">
-            <animateTransform attributeName="transform" type="scale" values="1;1.1;1" dur="5s" repeatCount="indefinite" />
-           </path>
-        </g>
+      {/* Orbiting Particles */}
+      <g>
+        {/* Orbit Path 1 */}
+        <ellipse cx="200" cy="150" rx="150" ry="80" fill="none" stroke="hsl(var(--primary))" strokeOpacity="0.1" strokeWidth="1" />
+        <circle cx="200" cy="150" r="4" fill="hsl(var(--primary))" filter="url(#glow)">
+          <animateMotion dur="8s" repeatCount="indefinite" path="M50,150 a150,80 0 1,0 300,0 a150,80 0 1,0 -300,0" />
+        </circle>
         
-        {/* Wifi Icon */}
-        <g transform="translate(80, 220)">
-          <path d="M0 10 C5 5, 15 5, 20 10 M3 7 C7 4, 13 4, 17 7 M6 4 C8 2, 12 2, 14 4" fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeLinecap="round">
-            <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1s" repeatCount="indefinite" />
-          </path>
-        </g>
+        {/* Orbit Path 2 */}
+        <ellipse cx="200" cy="150" rx="120" ry="100" transform="rotate(25 200 150)" fill="none" stroke="hsl(var(--primary))" strokeOpacity="0.1" strokeWidth="1" />
+        <circle cx="200" cy="150" r="3" fill="hsl(var(--primary))" filter="url(#glow)">
+            <animateMotion dur="10s" repeatCount="indefinite" begin="-2s">
+                <mpath href="#orbit2" />
+            </animateMotion>
+        </circle>
+        <path id="orbit2" d="M200,150 m-120,0 a120,100 0 1,0 240,0 a120,100 0 1,0 -240,0" transform="rotate(25 200 150)" style={{display: 'none'}} />
+
+        {/* Orbit Path 3 */}
+        <ellipse cx="200" cy="150" rx="180" ry="60" transform="rotate(-15 200 150)" fill="none" stroke="hsl(var(--primary))" strokeOpacity="0.1" strokeWidth="1" />
+        <circle cx="200" cy="150" r="2" fill="hsl(var(--primary))" opacity="0.8">
+            <animateMotion dur="12s" repeatCount="indefinite" begin="-4s">
+                <mpath href="#orbit3" />
+            </animateMotion>
+        </circle>
+        <path id="orbit3" d="M200,150 m-180,0 a180,60 0 1,0 360,0 a180,60 0 1,0 -360,0" transform="rotate(-15 200 150)" style={{display: 'none'}} />
+
+        {/* Data pulse line */}
+        <path d="M 200,150 L 350, 150" stroke="url(#path-gradient)" strokeWidth="2.5" filter="url(#glow)" strokeDasharray="50 150" strokeDashoffset="200">
+             <animate attributeName="stroke-dashoffset" from="200" to="-150" dur="4s" begin="1s" repeatCount="indefinite" />
+        </path>
+         <path d="M 200,150 L 80, 220" stroke="url(#path-gradient)" strokeWidth="2" filter="url(#glow)" strokeDasharray="40 140" strokeDashoffset="180">
+             <animate attributeName="stroke-dashoffset" from="180" to="-120" dur="5s" repeatCount="indefinite" />
+        </path>
       </g>
-
-
-      <g opacity="0.8" filter="url(#glow)">
-        {/* Lines */}
-        <line x1="50" y1="150" x2="150" y2="50" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 200">
-           <animate attributeName="stroke-dashoffset" from="0" to="-210" dur="3s" repeatCount="indefinite" />
-        </line>
-        <line x1="50" y1="150" x2="150" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 200">
-           <animate attributeName="stroke-dashoffset" from="0" to="-210" dur="3s" begin="0.5s" repeatCount="indefinite" />
-        </line>
-        <line x1="150" y1="50" x2="250" y2="50" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 100">
-            <animate attributeName="stroke-dashoffset" from="0" to="-110" dur="2.5s" repeatCount="indefinite" />
-        </line>
-        <line x1="150" y1="250" x2="250" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 100">
-            <animate attributeName="stroke-dashoffset" from="0" to="-110" dur="2.5s" begin="0.2s" repeatCount="indefinite" />
-        </line>
-        <line x1="250" y1="50" x2="350" y2="150" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 200">
-            <animate attributeName="stroke-dashoffset" from="0" to="-210" dur="3s" begin="1s" repeatCount="indefinite" />
-        </line>
-        <line x1="250" y1="250" x2="350" y2="150" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="10 200">
-            <animate attributeName="stroke-dashoffset" from="0" to="-210" dur="3s" begin="1.5s" repeatCount="indefinite" />
-        </line>
-        <line x1="150" y1="50" x2="150" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="4, 4">
-             <animate attributeName="stroke-dashoffset" from="0" to="16" dur="1s" repeatCount="indefinite" />
-        </line>
-         <line x1="250" y1="50" x2="250" y2="250" stroke="url(#line-gradient)" strokeWidth="2" strokeDasharray="4, 4">
-             <animate attributeName="stroke-dashoffset" from="16" to="0" dur="1s" repeatCount="indefinite" />
-        </line>
-      </g>
-
-      {/* Nodes */}
-      <circle cx="50" cy="150" r="8" fill="hsl(var(--primary))">
-        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="0s" />
-      </circle>
-      <circle cx="150" cy="50" r="8" fill="hsl(var(--primary))">
-        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="0.5s" />
-      </circle>
-       <circle cx="150" cy="250" r="8" fill="hsl(var(--primary))">
-        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="0.7s" />
-      </circle>
-      <circle cx="250" cy="50" r="8" fill="hsl(var(--primary))">
-        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="1s" />
-      </circle>
-      <circle cx="250" cy="250" r="8" fill="hsl(var(--primary))">
-        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="1.2s" />
-      </circle>
-      <circle cx="350" cy="150" r="8" fill="hsl(var(--primary))">
-        <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="1.5s" />
-      </circle>
     </svg>
   )
 }
