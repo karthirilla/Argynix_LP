@@ -1,3 +1,4 @@
+"use client"
 
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -29,21 +30,59 @@ const values = [
     }
 ]
 
-const AnimatedGrid = () => (
-    <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:3rem_3rem]">
-            <div className="absolute inset-[-10%] animate-pulse-slow">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_300px,hsl(var(--primary-foreground)),transparent)] opacity-20"></div>
-            </div>
+const ParticleAnimation = () => {
+    const particles = Array.from({ length: 30 });
+    return (
+        <div className="absolute inset-0 overflow-hidden">
+            {particles.map((_, i) => {
+                const style = {
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    width: `${Math.random() * 3 + 1}px`,
+                    height: `${Math.random() * 3 + 1}px`,
+                    animationDelay: `${Math.random() * 10}s`,
+                    animationDuration: `${Math.random() * 10 + 10}s`,
+                };
+                return (
+                    <div
+                        key={i}
+                        className="absolute rounded-full bg-primary/40 animate-particle"
+                        style={style}
+                    />
+                );
+            })}
+            <style jsx>{`
+                @keyframes particle {
+                    0% {
+                        transform: translate(0, 0) scale(1);
+                        opacity: 1;
+                    }
+                    50% {
+                        opacity: 0.5;
+                    }
+                    100% {
+                        transform: translate(
+                            ${(Math.random() - 0.5) * 200}px,
+                            ${(Math.random() - 0.5) * 200}px
+                        ) scale(${Math.random() * 0.5 + 0.5});
+                        opacity: 0;
+                    }
+                }
+                .animate-particle {
+                    animation-name: particle;
+                    animation-timing-function: linear;
+                    animation-iteration-count: infinite;
+                }
+            `}</style>
         </div>
-    </div>
-);
+    );
+};
 
 export default function AboutPage() {
   return (
     <div className="animate-in fade-in duration-500">
       <section className="relative bg-secondary py-20 md:py-28 overflow-hidden">
-        <AnimatedGrid />
+        <ParticleAnimation />
         <div className="container mx-auto max-w-7xl px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Argynix</h1>
           <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">

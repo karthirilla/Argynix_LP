@@ -100,6 +100,11 @@ export default {
             '0%': { transform: 'rotateX(0deg) rotateY(0deg)' },
             '100%': { transform: 'rotateX(360deg) rotateY(360deg)' },
         },
+        'particle': {
+          '0%': { transform: 'translate(0, 0) scale(1)', opacity: '1' },
+          '50%': { opacity: '0.5' },
+          '100%': { transform: 'translate(var(--particle-x), var(--particle-y)) scale(var(--particle-scale))', opacity: '0' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -107,6 +112,7 @@ export default {
         'spin-slow': 'spin-slow 25s linear infinite',
         'pulse-slow': 'pulse-slow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'spin-cube': 'spin-cube 20s linear infinite',
+        'particle': 'particle 20s linear infinite'
       },
     },
   },
