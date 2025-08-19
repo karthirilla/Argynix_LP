@@ -7,7 +7,7 @@ const teamMembers = [
   {
     name: "Karthi C",
     role: "CEO & Founder",
-    image: "https://placehold.co/400x400.png",
+    image: "https://images.unsplash.com/photo-1531590878845-12627191e687?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMG1hbGV8ZW58MHx8fHwxNzU1MDYyNTYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
     hint: "professional portrait",
   },
 ];
