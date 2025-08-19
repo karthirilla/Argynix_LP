@@ -43,16 +43,16 @@ export default function AboutPage() {
       
       <section className="py-16 md:py-24">
          <div className="container mx-auto max-w-7xl px-4">
-             <div className="grid md:grid-cols-5 gap-12 items-center">
-                <div className="md:col-span-2 text-center md:text-left">
+             <div className="text-center md:text-left">
+                 <div className="text-center max-w-4xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold">
                         About
                     </h2>
-                </div>
-                <div className="md:col-span-3 text-muted-foreground space-y-4 text-lg text-center md:text-left">
-                    <p>Argynix is a pioneer in delivering IoT solutions, industrial automation, robotics integration, and electronics product development. We specialize in creating customizable, high-performance systems that help industries automate processes, improve efficiency, and stay connected through the latest technology.</p>
-                    <p>Our expertise spans smart device design, embedded systems, electronics prototyping, PCB development, and full-scale automation solutions. With a strong focus on innovation, reliability, and scalability, we work closely with our clients to develop solutions that meet their exact requirements.</p>
-                </div>
+                    <div className="mt-4 text-muted-foreground space-y-4 text-lg">
+                        <p>Argynix is a pioneer in delivering IoT solutions, industrial automation, robotics integration, and electronics product development. We specialize in creating customizable, high-performance systems that help industries automate processes, improve efficiency, and stay connected through the latest technology.</p>
+                        <p>Our expertise spans smart device design, embedded systems, electronics prototyping, PCB development, and full-scale automation solutions. With a strong focus on innovation, reliability, and scalability, we work closely with our clients to develop solutions that meet their exact requirements.</p>
+                    </div>
+                 </div>
             </div>
         </div>
       </section>
