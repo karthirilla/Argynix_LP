@@ -1,3 +1,4 @@
+
 import Image from "next/image"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -28,7 +29,7 @@ export default function ElectronicsRdPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-in fade-in-left duration-700">
-              <Image src="https://placehold.co/600x400.png" alt="Electronics R&D" width={600} height={400} data-ai-hint="circuit board" className="rounded-lg shadow-lg" />
+              <Image src="/assets/our-services/electronics-rd.png" alt="Electronics R&D" width={600} height={400} data-ai-hint="circuit board" className="rounded-lg shadow-lg" />
             </div>
             <div className="animate-in fade-in-right duration-700">
               <h2 className="text-3xl font-bold tracking-tight mb-4">Bringing Ideas to Life</h2>

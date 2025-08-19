@@ -1,3 +1,4 @@
+
 import Image from "next/image"
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -28,7 +29,7 @@ export default function IndustrialAutomationPage() {
         <div className="container mx-auto max-w-7xl px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-in fade-in-left duration-700">
-              <Image src="https://placehold.co/600x400.png" alt="Industrial Automation" width={600} height={400} data-ai-hint="factory automation" className="rounded-lg shadow-lg" />
+              <Image src="/assets/our-services/industrial-automation.png" alt="Industrial Automation" width={600} height={400} data-ai-hint="factory automation" className="rounded-lg shadow-lg" />
             </div>
             <div className="animate-in fade-in-right duration-700">
               <h2 className="text-3xl font-bold tracking-tight mb-4">Modernizing Your Operations</h2>
