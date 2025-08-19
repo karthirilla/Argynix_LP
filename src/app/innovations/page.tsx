@@ -10,7 +10,7 @@ const innovations = [
   {
     title: "AI-Powered Predictive Maintenance for Industrial IoT",
     description: "Our new AI model analyzes real-time sensor data to predict machinery failures with 95% accuracy, drastically reducing downtime and maintenance costs. This system is now being deployed with our key manufacturing partners.",
-    image: "https://images.unsplash.com/photo-1545259741-2ea3ebf61fa3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxOHx8aW90fGVufDB8fHx8MTc1NTA2MjAwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/assets/Innovation/ai-powered-predictive-maintenance-for-industrial-iot.png",
     hint: "AI dashboard",
     tags: ["AI", "Machine Learning", "IoT", "Industry 4.0"],
     date: "October 17, 2023",
@@ -18,7 +18,7 @@ const innovations = [
   {
     title: "Self-Learning Home Automation Systems",
     description: "We're moving beyond simple commands. Our latest home automation hubs learn user habits and preferences to proactively adjust lighting, climate, and security settings for optimal comfort and energy efficiency.",
-    image: "https://images.unsplash.com/photo-1512914890251-2f96a9b0bbe2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxob21lJTIwYXV0b21hdGlvbnxlbnwwfHx8fDE3NTUwNjIxNTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/assets/Innovation/self-learning-home-automation-systems.png",
     hint: "futuristic home",
     tags: ["AI", "Smart Home", "Energy Efficiency"],
     date: "September 05, 2023",
@@ -26,7 +26,7 @@ const innovations = [
   {
     title: "Next-Gen LoRaWAN Protocol for Ultra-Low Power IoT",
     description: "Our R&D team has contributed to a new communication protocol that extends battery life for remote IoT devices to over 10 years, unlocking possibilities for long-term environmental and agricultural monitoring.",
-    image: "https://images.unsplash.com/photo-1533979640417-546cbced58b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxNnx8cmFkaW98ZW58MHx8fHwxNzU1MDYyMjYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    image: "/assets/Innovation/next-gen-lorawan-protocol-for-ultra-low-power-iot.png",
     hint: "communication tower",
     tags: ["LoRaWAN", "R&D", "Low Power"],
     date: "August 21, 2023",
@@ -62,6 +62,7 @@ export default function InnovationsPage() {
                 layout="fill"
                 objectFit="cover"
                 data-ai-hint={featuredInnovation.hint}
+                className="grayscale hover:grayscale-0 focus:grayscale-0 transition-all duration-300"
               />
             </div>
             <div className="p-8 flex flex-col justify-center">
@@ -95,7 +96,7 @@ export default function InnovationsPage() {
                     width={600}
                     height={400}
                     data-ai-hint={item.hint}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 grayscale hover:grayscale-0 focus:grayscale-0"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
